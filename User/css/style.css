@@ -337,6 +337,12 @@ http://www.tooplate.com/view/2098-health
     margin-left: -10px; /* Di chuyển avatar sang trái 10px */
     margin-top: -5px;
 }
+.navbar-default .navbar-nav .doctor-avatar {
+  width: 30px; /* Điều chỉnh kích thước nếu cần */
+  height: 30px; /* Điều chỉnh kích thước nếu cần */
+  border-radius: 50%; /* Làm cho hình ảnh hồ sơ tròn */
+  margin-right: 5px;
+}
   
 .navbar-default .navbar-nav .dropdown-menu a {
     white-space: nowrap; /* Tránh ngắn chữ xuống dòng */
