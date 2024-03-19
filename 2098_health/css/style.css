@@ -315,21 +315,31 @@ http://www.tooplate.com/view/2098-health
     margin-bottom: 0;
     padding: 10px;
   }
-  
+ 
   .navbar-default .navbar-brand {
     color: #a5c422;
     font-weight: 1000;
+    font-size: 25px;
   }
 
   .navbar-default .navbar-brand .fa {
     color: #a5c422;
   }
+  .navbar-default .navbar-nav .dropdown-menu li {
+    margin-bottom: 10px;
+}
 
-  .navbar-default .navbar-nav li.appointment-btn {
+/* Căn chữ "Đặt khám bác sĩ" và "Đặt khám bệnh viện" ngang với nhau */
+.navbar-default .navbar-nav .dropdown-menu a {
+    white-space: nowrap; /* Tránh ngắn chữ xuống dòng */
+    display: block;
+    padding: 10px 20px; /* Điều chỉnh lề và padding tùy theo nhu cầu */
+}
+  .navbar-default .navbar-nav li.login-btn {
     margin: 3px 0 0 20px;
   }
 
-  .navbar-default .navbar-nav li.appointment-btn a {
+  .navbar-default .navbar-nav li.login-btn a {
     background: #a5c422;
     border-radius: 3px;
     color: #ffffff;
@@ -338,7 +348,7 @@ http://www.tooplate.com/view/2098-health
     padding-bottom: 12px;
   }
 
-  .navbar-default .navbar-nav li.appointment-btn a:hover {
+  .navbar-default .navbar-nav li.login-btn a:hover {
     background: #4267b2;
     color: #ffffff !important;
   }
@@ -354,7 +364,7 @@ http://www.tooplate.com/view/2098-health
   }
 
   .navbar-default .navbar-nav > li a:hover {
-    color: #393939 !important;
+    color: #4267b2 !important;
   }
 
   .navbar-default .navbar-nav > li > a:hover,
