@@ -72,3 +72,24 @@ button:hover {
     background-color: #0056b3;
     border-radius: 10px;
 }
+
+/* Thiết lập responsive cho các kích thước màn hình lớn hơn hoặc bằng 768px */
+@media (min-width: 768px) {
+    .booking-form {
+        padding: 60px;
+    }
+
+    .form-group {
+        margin-right: 60px;
+    }
+
+}
+
+/* Thiết lập responsive cho các kích thước màn hình lớn hơn hoặc bằng 992px */
+@media (min-width: 992px) {
+    .booking-form {
+        max-width: 800px;
+    }
+
+}
+
