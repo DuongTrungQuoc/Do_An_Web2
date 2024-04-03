@@ -136,6 +136,11 @@ body{
 .social-icons{
     margin: 20px 0;
 }
+.error_alert{
+    color: rgb(210, 4, 4);
+    font-weight: normal;
+    font-size: 14px;
+}
 
 .social-icons a{
     border: 1px solid #ccc;
