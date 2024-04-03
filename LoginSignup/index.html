@@ -40,7 +40,7 @@
                 <input type="email" placeholder="Email">
                 <input type="password" placeholder="Password">
                 <a href="#">Forget Your Password?</a>
-                <button>Log In</button>
+                <button><a href="#login">Log In</a></button>
             </form>
         </div>
         <div class="toggle-container">
@@ -60,6 +60,12 @@
     </div>
 
     <script src="script.js"></script>
+    <script> // Chuyển hướng btn login vô form đăng nhập
+        document.querySelector('button a').addEventListener('click', function(event) {
+            event.preventDefault();
+            window.location.href = '../User/index.html';
+        });
+    </script>
 </body>
 
 </html>

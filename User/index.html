@@ -2,14 +2,7 @@
 <html lang="en">
 <head>
 
-     <title>Health - Medical Website Template</title>
-<!--
-
-Template 2098 Health
-
-http://www.tooplate.com/view/2098-health
-
--->
+     <title>User</title>
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
      <meta name="description" content="">
@@ -24,7 +17,7 @@ http://www.tooplate.com/view/2098-health
      <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
      <!-- CSS -->
-     <link rel="stylesheet" href="css/tooplate-style.css">
+     <link rel="stylesheet" href="css/style.css">
 
 </head>
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
@@ -32,42 +25,73 @@ http://www.tooplate.com/view/2098-health
      <!-- PRE LOADER -->
      <section class="preloader">
           <div class="spinner">
-
                <span class="spinner-rotate"></span>
-               
           </div>
      </section>
 
      <!-- MENU header-->
      <section class="navbar navbar-default navbar-static-top" role="navigation">
           <div class="container">
-
-               <div class="navbar-header">
-                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                         <span class="icon icon-bar"></span>
-                         <span class="icon icon-bar"></span>
-                         <span class="icon icon-bar"></span>
-                    </button>
-
-                    <!-- lOGO TEXT HERE -->
-                    <a href="index.html" class="navbar-brand"><i class="fa fa-meetup large-icon"></i>EDICLORD</a>
-               </div>
-
-               <!-- MENU LINKS -->
-               <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                         <li><a href="#top" class="smoothScroll">Đặt khám</a></li>
-                         <li><a href="#about" class="smoothScroll">Tư vấn trực tuyến</a></li>
-                         <li><a href="#team" class="smoothScroll">Store</a></li>
-                         <li><a href="#news" class="smoothScroll">Tin Y tế</a></li>
-                         <li><a href="#google-map" class="smoothScroll">Dành cho nhân viên Y tế</a></li>
-                         <li class="appointment-btn"><a href="#appointment">Đăng nhập</a></li>
-                    </ul>
-               </div>
-
+      
+              <div class="navbar-header">
+                  <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                      <span class="icon icon-bar"></span>
+                      <span class="icon icon-bar"></span>
+                      <span class="icon icon-bar"></span>
+                  </button>
+                  <!-- LOGO -->
+                  <a href="index.html" class="navbar-brand">MEDICLORD</a>
+              </div>
+      
+              <!-- MENU LINKS -->
+              <div class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav navbar-right">
+                      <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Đặt khám <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                              <li><a href="#doctor" data-toggle="tooltip" title="Đặc khám không chờ đợi">Đặt khám bác sĩ</a></li>
+                              <li><a href="#hospital" data-toggle="tooltip" title="Đặt khám, thanh toán, nhận kết quả">Đặt khám bệnh viện</a></li>
+                              <li><a href="#call">Bạn cần hỗ trợ? Gọi cho chúng tôi 0355925179</a></li>
+                          </ul>
+                      </li>
+                      <li><a href="#online" class="smoothScroll">Tư vấn trực tuyến</a></li>
+                      <li><a href="#store" class="smoothScroll">Store</a></li>
+                      <li><a href="#news" class="smoothScroll">Tin Y tế</a></li>
+                      <!-- Notification Dropdown -->
+                      <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                              <i class="fa fa-bell"></i> <!-- Icon chuông thông báo -->
+                              <span class="caret"></span>
+                          </a>
+                          <ul class="dropdown-menu notification-dropdown">
+                              <!-- Danh sách thông báo từ bác sĩ -->
+                              <li>
+                                  <a href="#">
+                                      <img src="images/bs1.jpg" alt="Doctor" class="doctor-avatar">
+                                      <span class="notification-message">Nhớ uống thuốc</span>
+                                  </a>
+                              </li>
+                              <!-- Thêm các thông báo khác tương tự cần thiết -->
+                          </ul>
+                      </li>
+                      <!-- User Avatar Dropdown -->
+                      <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                              <img src="images/quoc.jpg" alt="Avatar" class="avatar">
+                          </a>
+                          <ul class="dropdown-menu">
+                              <li><a href="#" class="profile"><i class="fa fa-user"></i> My Profile</a></li>
+                              <li><a href="#" class="messages"><i class="fa fa-envelope"></i> Messages</a></li>
+                              <li><a href="#" class="activity"><i class="fa fa-bell"></i> Activity</a></li>
+                              <li><a href="#" class="faq"><i class="fa fa-question-circle"></i> FAQ</a></li>
+                              <li><a href="#" class="sign-out"><i class="fa fa-sign-out"></i> Sign Out</a></li>
+                          </ul>
+                      </li>
+                  </ul>
+              </div>
+      
           </div>
-     </section>
-
+      </section>
 
      <!-- HOME -->
      <section id="home" class="slider" >
@@ -123,11 +147,11 @@ http://www.tooplate.com/view/2098-health
      </section>
 
 
-     <!-- TEAM -->
-     <section id="team" data-stellar-background-ratio="1">
+     <!-- SELECT DOCTOR -->
+     <section id="team" class="slider" data-stellar-background-ratio="0.5">
           <div class="container">
                <div class="row">
-
+               
                     <div class="col-md-6 col-sm-6">
                          <div class="about-info">
                               <h2 class="wow fadeInUp" data-wow-delay="0.1s">Đặt khám bác sĩ</h2>
@@ -135,7 +159,7 @@ http://www.tooplate.com/view/2098-health
                     </div>
 
                     <div class="clearfix"></div>
-
+               
                     <div class="col-md-4 col-sm-6">
                          <div class="team-thumb wow fadeInUp" data-wow-delay="0.2s">
                               <img src="images/team-image1.jpg" class="img-responsive" alt="">
@@ -225,10 +249,10 @@ http://www.tooplate.com/view/2098-health
                               </a>
                               <div class="news-info">
                                    <span>08/03/2024</span>
-                                   <h3><a href="news-detail.html">Ứng dụng công nghệ tế bào gốc trong y học</a></h3>
-                                   <p>Những năm gần đây, công nghệ tế bào gốc đã mang đến nhiều bước tiến mới trong lĩnh vực y khoa. Đặc biệt, những phương pháp chữa bệnh mới được tìm thấy và đạt được hiệu quả đáng kể. </p>
+                                   <h3><a href="new.html">Ứng dụng công nghệ tế bào gốc trong y học</a></h3>
+                                   <p>Công nghệ tế bào gốc đã mang đến nhiều bước tiến mới trong lĩnh vực y khoa. Những phương pháp mới này được tìm thấy và đạt được hiệu quả đáng kể. </p>
                                    <div class="author">
-                                        <img src="images/author-image.jpg" class="img-responsive" alt="">
+                                        <img src="images/quoc.jpg" class="img-responsive" alt="">
                                         <div class="author-info">
                                              <h5>Dương Trung Quốc</h5>
                                              <p>CEO / Founder</p>
@@ -246,10 +270,10 @@ http://www.tooplate.com/view/2098-health
                               </a>
                               <div class="news-info">
                                    <span>20/02/2024</span>
-                                   <h3><a href="news-detail.html">Nâng cấp Bệnh viện Đa khoa Khánh Hòa</a></h3>
+                                   <h3><a href="new.html">Nâng cấp Bệnh viện Đa khoa Khánh Hòa</a></h3>
                                    <p>Bệnh viện Đa khoa tỉnh Khánh Hòa sẽ trở thành bệnh viện tuyến cuối của khu vực duyên hải Nam Trung Bộ, dự kiến được đầu tư, nâng cấp lên 1.500 giường.</p>
                                    <div class="author">
-                                        <img src="images/author-image.jpg" class="img-responsive" alt="">
+                                        <img src="images/quoc.jpg" class="img-responsive" alt="">
                                         <div class="author-info">
                                              <h5>Dương Trung Quốc</h5>
                                              <p>General Director</p>
@@ -267,10 +291,10 @@ http://www.tooplate.com/view/2098-health
                               </a>
                               <div class="news-info">
                                    <span>27/01/2024</span>
-                                   <h3><a href="news-detail.html">Tẩy tế bào chết toàn thân tại nhà giống như spa</a></h3>
-                                   <p>Không chỉ da mặt, da toàn thân cũng cần được chăm sóc kỹ càng, trong đó có bước tẩy da chết. Thực hiện tốt việc này sẽ giúp bạn sở hữu làn da sáng mịn hơn, tránh được tình trạng viêm, mụn và giảm cảm giác khô sần.</p>
+                                   <h3><a href="new.html">Tẩy tế bào chết toàn thân tại nhà giống như spa</a></h3>
+                                   <p>Thực hiện tốt việc tẩy da chết sẽ giúp bạn sở hữu làn da sáng mịn hơn, tránh được tình trạng viêm, mụn và giảm cảm giác khô sần.</p>
                                    <div class="author">
-                                        <img src="images/author-image.jpg" class="img-responsive" alt="">
+                                        <img src="images/quoc.jpg" class="img-responsive" alt="">
                                         <div class="author-info">
                                              <h5>Dương Trung Quốc</h5>
                                              <p>Online Advertising</p>
@@ -364,7 +388,7 @@ http://www.tooplate.com/view/2098-health
                               <h4 class="wow fadeInUp" data-wow-delay="0.4s">CÔNG TY TNHH MEDICLORD</h4>
                               <p>MEDICLORD được thành lập vào năm 2024. Mục tiêu chính là trở thành doanh nghiệp gia công phần mềm hàng đầu Việt Nam.
 
-                                   Đến nay, công ty đã phát triển mạnh mẽ với các trụ sở không chỉ ở Việt Nam mà còn ở nước ngoài như Nhật Bản, Malaysia, Thái Lan, v.v. FPT Software đã trở thành nhà cung cấp phần mềm của nhiều doanh nghiệp lớn.</p>
+                                   Đến nay, công ty đã phát triển mạnh mẽ với các trụ sở không chỉ ở Việt Nam mà còn ở nước ngoài như Malaysia, Thái Lan, v.v.</p>
 
                               <div class="contact-info">
                                    <p><i class="fa fa-phone"></i> 010-070-0170</p>
@@ -418,7 +442,7 @@ http://www.tooplate.com/view/2098-health
                                    <p>Copyright &copy; 2024 Quốc và ae</p>
                               </div>
                          </div>
-                         
+                    <!-- BTN BACK TO TOP -->
                          <div class="col-md-2 col-sm-2 text-align-center">
                               <div class="angle-up-btn"> 
                                   <a href="#top" class="smoothScroll wow fadeInUp" data-wow-delay="1.2s"><i class="fa fa-angle-up"></i></a>
