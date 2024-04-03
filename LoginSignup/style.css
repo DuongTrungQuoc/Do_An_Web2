@@ -214,3 +214,17 @@ body{
 .container.active .toggle-right{
     transform: translateX(200%);
 }
+
+/* Media queries cho các thiết bị có kích thước màn hình nhỏ hơn hoặc bằng 768px */
+@media (max-width: 768px) {
+    .container {
+        width: 90%; /* Thay đổi kích thước container */
+    }
+}
+
+/* Media queries cho các thiết bị có kích thước màn hình nhỏ hơn hoặc bằng 480px */
+@media (max-width: 480px) {
+    .container {
+        width: 95%; /* Thay đổi kích thước container */
+    }
+}

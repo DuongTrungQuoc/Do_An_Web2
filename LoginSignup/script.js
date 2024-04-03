@@ -10,48 +10,38 @@ loginBtn.addEventListener('click', () => {
     container.classList.remove("active");
 });
 
-// Check the condition
+// Lấy các phần tử input từ form
+const nameInput = document.getElementById('name');
+const emailInput = document.querySelector('input[type="email"]');
+const passwordInput = document.querySelector('input[type="password"]');
+
+// Lấy các form từ DOM
 const signUpForm = document.querySelector('.sign-up form');
-const logInForm = document.querySelector('.sign-in form');
-const signUpInputs = document.querySelector('.sign-up input');
-const logInInputs = document.querySelector('.sign-in input');
+const signInForm = document.querySelector('.sign-in form');
 
-// Set event if user click  on sign up button
-signUpForm.addEventListener('submit', function(e){
-    e.preventDefault();
-    const signUpInputs = document.querySelectorAll('.sign-up input');
-    // If there are empty fields
-    if (checkEmptyInputs(signUpInputs)){
-        alert('Please fill in all fields');
-        return;
-    }
-    
-    // Check email input value
-    const emailInput = document.getElementById("email");
-    const email = emailInput.value;
-    // Check if the email is valid
-    if (!isValidEmail(email)){
-        alert('Please enter a valid email address');
+// Xử lý sự kiện khi người dùng submit form đăng ký
+signUpForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Ngăn chặn form gửi đi để kiểm tra dữ liệu trước
+
+    const name = nameInput.value.trim(); // Lấy tên từ input và loại bỏ các khoảng trắng ở đầu và cuối
+    const email = emailInput.value.trim();
+    const password = passwordInput.value.trim();
+
+    // Kiểm tra định dạng tên
+    if (!isValidName(name)) {
+        alert('Please enter a valid name.'); // Thông báo lỗi nếu tên không hợp lệ
         return;
     }
 
-    // Check username input value
-    const nameInput = document.getElementById('name');
-    const name = nameInput.value.trim();    // Loại bỏ khoảng trắng đầu và cuối
-    // Kiểm tra tên có hợp lệ không
-    if (!isValidName(name)){
-        alert('Please enter a valid name (only alphabetic characters)');
-        return;
-    }
+    // Kiểm tra định dạng email và mật khẩu cũng có thể thực hiện tương tự
+
+    // Nếu dữ liệu hợp lệ, có thể gửi form đi hoặc thực hiện các hành động khác tùy thuộc vào yêu cầu của bạn
 });
 
-// Set event if user click on log in button
-logInForm.addEventListener('submit', function(e){
-    e.preventDefault();
-    const logInInputs = document.querySelectorAll('.sign-in input');
-    // If there are empty fields
-    if (checkEmptyInputs(logInInputs)){
-        alert('Please fill in all fields');
-        return;
-    }
-});
+// Hàm kiểm tra định dạng tên
+function isValidName(name) {
+    // Định nghĩa các điều kiện cho tên, ví dụ: phải có ít nhất 2 ký tự và không chứa ký tự đặc biệt
+    const nameRegex = /^[a-zA-Z ]{2,}$/; // Sử dụng regex để kiểm tra
+
+    return nameRegex.test(name); // Trả về true nếu tên hợp lệ, ngược lại trả về false
+}
