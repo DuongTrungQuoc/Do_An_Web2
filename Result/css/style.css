@@ -9,13 +9,11 @@
      TYPOGRAPHY              
   -----------------------------------------*/
   .appointment-card {
-    
-    background-color: white;
-    width: 600px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 20px;
+    text-align: left; /* Align text to the left within the appointment card */
+    margin-top: 50px; /* Adjust the top margin for spacing */
+    padding: 20px; /* Add padding to the appointment card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow for a subtle effect */
+    border-radius: 10px; /* Add border radius for rounded corners */
 }
 
 .appointment-head {
@@ -25,10 +23,15 @@
     margin-bottom: 20px;
 }
 
-.qr-code, .confirm-icon {
+.qr-code{
     width: 100px;
     height: 100px;
     margin-right: 20px;
+}
+.confirm-icon {
+  width: 100px;
+  height: 100px;
+  
 }
 
 .appointment-details p {
