@@ -6,7 +6,68 @@
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
   }
+  /* Style cho Modal */
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Căn giữa các items theo chiều ngang */
+  justify-content: center; /* Căn giữa các items theo chiều dọc */
+  text-align: center; /* Đảm bảo rằng văn bản nằm ở giữa */
+  position: relative;
+  background-color: #fefefe;
+  margin: 10% auto; /* Giảm khoảng cách từ trên xuống để modal hiển thị ở gần giữa hơn */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%; /* Bạn có thể điều chỉnh chiều rộng tùy ý */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
 
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% từ trên cùng và giữa màn hình */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Chiều rộng tối đa */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Thêm Animation */
+@keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#retryButton {
+  margin-top: 20px;
+  background-color: #f44336; /* Màu đỏ */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+#retryButton:hover {
+  background-color: #d32f2f; /* Màu đỏ đậm */
+}
 
   /*---------------------------------------
      TYPOGRAPHY              

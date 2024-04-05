@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-     <title>Chọn ngày khám bệnh</title>
+     <title>Thông báo đặt lịch thất bại</title>
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
      <meta name="description" content="">
@@ -93,29 +93,40 @@
           </div>
       </section>
 
-     
-      <!-- Bảng ngày để đặt lịch -->
-     <div class="calendar-container">
-          <div class="month">
-              <h3>Tháng 4, 2024</h3>
+     <!-- HOME -->
+     <section id="home" class="slider" >
+          <div class="container">
+               <div class="row">
+                         <div class="owl-carousel owl-theme">
+                              <div class="item item-first">
+                                   <div class="caption">
+                                        <div class="col-md-offset-1 col-md-10">
+                                             <h1>Đặt khám bác sĩ</h1>
+                                             <h3>Đặt khám với hơn 150 bác sĩ trên MEDICLORD
+                                                  để có số thứ tự và khung giờ khám trước.</h3>  
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+
+               </div>
           </div>
-          <div class="days">
-              <div class="day">T2</div>
-              <div class="day">T3</div>
-              <div class="day">T4</div>
-              <div class="day">T5</div>
-              <div class="day">T6</div>
-              <div class="day">T7</div>
-              <div class="day">CN</div>
-          </div>
-          <div class="dates" id="dates">
-              <!-- JavaScript sẽ điền các ngày vào đây -->
-          </div>
-      </div>
+     </section>
+        
+     <!-- Modal Thông Báo -->
+<div id="failModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Đặt Lịch Thất Bại</h2>
+      <p>Vui lòng đặt lịch lại.</p>
+      <button id="retryButton">Đặt Lịch Lại</button>
+    </div>
+  </div>
+  
 
 
 
-              
+       
 
 
      <!-- FOOTER -->
@@ -204,23 +215,33 @@
      <script src="js/owl.carousel.min.js"></script>
      <script src="js/custom.js"></script>
      <script>
-          // Mảng ví dụ, true nghĩa là ngày có thể đặt lịch, false là không thể
-          const availability = [false, true, true, true, false, true, true, false, true, true, false, true, true, true, false, true, true, true, false, true, true, true, false, true, true, true, false, true, true, false];
-          
-          const datesContainer = document.getElementById('dates');
-          
-          // Tạo và hiển thị các ngày
-          availability.forEach((available, index) => {
-              const dateElement = document.createElement('div');
-              dateElement.classList.add('date');
-              if (!available) {
-                  dateElement.classList.add('disabled');
-              } else {
-                  dateElement.classList.add('active');
-              }
-              dateElement.textContent = index + 1; // Ngày bắt đầu từ 1
-              datesContainer.appendChild(dateElement);
-          });
-          </script>
+        // Lấy modal
+        var modal = document.getElementById("failModal");
+        
+        // Lấy phần tử <span> để đóng modal
+        var span = document.getElementsByClassName("close")[0];
+        
+        // Khi người dùng nhấn vào <span> (x), đóng modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        
+        // Khi người dùng nhấn vào nút "Đặt Lịch Lại", ẩn modal và có thể thêm logic đặt lịch lại ở đây
+        document.getElementById("retryButton").onclick = function() {
+            window.location.href = '../BookingDoctor/index.html';
+            // Logic đặt lịch lại (nếu cần)
+        }
+        
+        // Hiển thị modal
+        modal.style.display = "block";
+        
+        // Nếu người dùng nhấn vào bất cứ đâu ngoài modal, đóng nó lại
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        </script>
+
 </body>
 </html>
