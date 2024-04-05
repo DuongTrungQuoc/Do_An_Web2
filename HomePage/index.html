@@ -50,8 +50,8 @@
                          <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Đặt khám <span class="caret"></span></a>
                               <ul class="dropdown-menu">
-                                  <li><a href="#doctor" data-toggle="tooltip" title="Đặc khám không chờ đợi">Đặt khám bác sĩ</a></li>
-                                  <li><a href="#hospital" data-toggle="tooltip" title="Đặt khám, thanh toán, nhận kết quả">Đặt khám bệnh viện</a></li>
+                                  <li><a href="#doctor" id="bookDoctor" data-toggle="tooltip" title="Đặc khám không chờ đợi">Đặt khám bác sĩ</a></li>
+                                  <li><a href="#hospital" id="bookHospital" data-toggle="tooltip" title="Đặt khám, thanh toán, nhận kết quả">Đặt khám bệnh viện</a></li>
                                   <li><a href="#call">Bạn cần hỗ trợ? Gọi cho chúng tôi 0355925179</a></li>
                               </ul>
                           </li>
@@ -448,6 +448,15 @@
               event.preventDefault();
               window.location.href = '../LoginSignup/index.html';
           });
+          document.getElementById('bookDoctor').addEventListener('click', function(event) {
+               event.preventDefault(); // Ngăn không cho trang chuyển theo href mặc định
+               window.location.href = '../LoginSignup/index.html'; // Chuyển sang trang đăng nhập
+           });
+       
+           document.getElementById('bookHospital').addEventListener('click', function(event) {
+               event.preventDefault(); // Ngăn không cho trang chuyển theo href mặc định
+               window.location.href = '../LoginSignup/index.html'; // Chuyển sang trang đăng nhập
+           });
       </script>
       
 </body>
