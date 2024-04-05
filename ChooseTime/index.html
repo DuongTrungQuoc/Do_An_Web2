@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-     <title>Chọn ngày khám bệnh</title>
+     <title>Chọn thời gian khám bệnh</title>
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
      <meta name="description" content="">
@@ -93,36 +93,32 @@
           </div>
       </section>
 
-     
-      <!-- Bảng ngày để đặt lịch -->
-     <div class="calendar-container">
-          <div class="month">
-               <button id="prev" class="prev">&#10094;</button>
-              <h3>Tháng 4, 2024</h3>
-              <button id="next" class="next">&#10095;</button>
+      <div class="time-selection-container">
+          <h2>Chọn Thời Gian Khám Bệnh</h2>
+          <div class="time-slots">
+              <h3>Buổi Sáng</h3>
+              <button class="time-slot">07:00-08:00</button>
+              <button class="time-slot">08:00-09:00</button>
+              <button class="time-slot">09:00-10:00</button>
+              <button class="time-slot">10:00-11:00</button>
+              
           </div>
-          <div class="days">
-              <div class="day">T2</div>
-              <div class="day">T3</div>
-              <div class="day">T4</div>
-              <div class="day">T5</div>
-              <div class="day">T6</div>
-              <div class="day">T7</div>
-              <div class="day">CN</div>
+          <div class="time-slots">
+              <h3>Buổi Chiều</h3>
+              <button class="time-slot">13:00-14:00</button>
+              <button class="time-slot">14:00-15:00</button>
+              <button class="time-slot">15:00-16:00</button>
+              <button class="time-slot">16:00-17:00</button>
+              
           </div>
-          <div class="dates" id="dates">
-              <!-- JavaScript sẽ điền các ngày vào đây -->
-          </div>
-
-          <div class="calendar-legend">
-               <span class="legend-item"><span class="legend-color available"></span> Ngày đặt khám được</span>
-               <span class="legend-item"><span class="legend-color unavailable"></span> Ngày không đặt khám được</span>
+          <div class="time-slots">
+               <h3>Buổi Tối</h3>
+               <button class="time-slot">19:00-20:00</button>
+               <!-- Thêm các khung giờ khác tương tự nếu cần -->
            </div>
-           
-           <button id="confirmDate" class="confirm-date">Xác nhận chọn ngày</button>
+          <button id="confirmSelection">Xác nhận chọn</button>
       </div>
-
-
+      
               
 
 
@@ -212,42 +208,26 @@
      <script src="js/owl.carousel.min.js"></script>
      <script src="js/custom.js"></script>
      <script>
-          // Mảng ví dụ, true nghĩa là ngày có thể đặt lịch, false là không thể
-          const availability = [false, true, true, true, false, true, true, false, true, true, false, true, true, true, false, true, true, true, false, true, true, true, false, true, true, true, false, true, true, false];
-
-          const datesContainer = document.getElementById('dates');
-          let selectedDate = null; // Lưu trữ ngày được chọn
-
-          // Tạo và hiển thị các ngày
-          availability.forEach((available, index) => {
-          const dateElement = document.createElement('div');
-          dateElement.classList.add('date');
-          if (!available) {
-          dateElement.classList.add('disabled');
+     document.querySelectorAll('.time-slot').forEach(function(slot) {
+          slot.addEventListener('click', function() {
+              document.querySelectorAll('.time-slot').forEach(function(s) {
+                  s.classList.remove('selected'); // Bỏ chọn tất cả các khung giờ khác
+              });
+              slot.classList.add('selected'); // Đánh dấu khung giờ được chọn
+          });
+      });
+      
+      document.getElementById('confirmSelection').addEventListener('click', function() {
+          var selectedTimeSlot = document.querySelector('.time-slot.selected');
+          if (selectedTimeSlot) {
+              // Xử lý lựa chọn (có thể lưu vào localStorage, session hoặc gửi thông tin đến server)
+              console.log('Thời gian đã chọn:', selectedTimeSlot.textContent);
+              alert('Thời gian đã chọn: ' + selectedTimeSlot.textContent);
+              window.location.href = '../Result/indexSuccess.html'; // Chuyển sang trang kết quả
           } else {
-          dateElement.classList.add('active');
-          dateElement.addEventListener('click', function() {
-            if (selectedDate) {
-                selectedDate.classList.remove('selected'); // Xóa lựa chọn trước đó
-            }
-            dateElement.classList.add('selected'); // Đánh dấu ngày được chọn
-            selectedDate = dateElement;
-        });
-    }
-    dateElement.textContent = index + 1; // Ngày bắt đầu từ 1
-    datesContainer.appendChild(dateElement);
-     });
-
-     // Xử lý sự kiện khi nhấn nút xác nhận
-          document.getElementById('confirmDate').addEventListener('click', function() {
-          if (selectedDate) {
-        // Thực hiện hành động chuyển trang hoặc lưu ngày được chọn
-          alert('Ngày được chọn: ' + selectedDate.textContent); // Ví dụ hiển thị thông báo
-          window.location.href = '../ChooseTime/index.html';
-          } else {
-          alert('Vui lòng chọn ngày khám bệnh.');
-     }
-     });
+              alert('Vui lòng chọn một khung giờ!');
+          }
+      });
      </script>
 </body>
 </html>
