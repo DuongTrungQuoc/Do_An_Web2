@@ -152,6 +152,7 @@
     color: #333;
     margin: 0;
 }
+
 /* Nút chuyển tháng */
 .prev, .next {
   background-color: #f1f1f1;
@@ -202,6 +203,16 @@
 
 .confirm-date:hover {
   background-color: #45a049;
+}
+.date.active:hover {
+  background-color: #4CAF50; /* Màu xanh lá cho hover */
+  color: white; /* Màu chữ trắng */
+  cursor: pointer; /* Thay đổi con trỏ để người dùng biết có thể click */
+}
+/* Style cho ngày được chọn */
+.date.selected {
+  background-color: #4CAF50; /* Màu xanh lá cho ngày được chọn */
+  color: white; /* Màu chữ trắng */
 }
 /* -------------------------------- */
 .days, .dates {
@@ -281,7 +292,81 @@
   .text-align-center {
     text-align: center;
   }
+  /* Giới thiệu bác sĩ*/
+  .main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Đảm bảo các phần tử bắt đầu ở cùng một điểm từ trên xuống */
+}
 
+.left-column {
+    flex: 2; /* Cho phép cột trái chiếm không gian lớn hơn nếu cần */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Căn giữa các phần tử trong cột */
+}
+
+.doctor-introduction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px; /* Khoảng cách giữa giới thiệu bác sĩ và bảng chọn ngày */
+}
+.doctor-profile {
+  display: flex;
+  align-items: center; /* Đảm bảo hình ảnh và tên bác sĩ căn giữa với nhau */
+}
+
+.clinic-information {
+    flex: 1; /* Cho phép cột phải chiếm không gian ít hơn */
+    /* CSS cho clinic-information giữ nguyên */
+}
+
+
+/* Tiếp tục với CSS cho các phần tử khác giữ nguyên */
+
+  .doctor-introduction, .clinic-information {
+    margin: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.doctor-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+.doctor-location {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.fa-map-marker {
+    margin-right: 5px;
+    color: #007bff;
+}
+
+.clinic-information h3, .doctor-introduction h3 {
+    color: #007bff;
+}
+
+.promotion {
+    color: #ffd700;
+}
+
+.detail-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.detail-link:hover {
+    text-decoration: underline;
+}
   .border-top {
     border-top: 1px solid #f2f2f2;
     margin-top: 4em;
