@@ -1,4 +1,5 @@
 
+
   @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600');
 
   body {
@@ -6,125 +7,7 @@
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
   }
-   /* Style cho Time */
-   .time-selection-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-}
-  .time-selection-container h2, .time-selection-container h3 {
-    text-align: center;
-}
 
-.time-slots {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 100%; /* Đảm bảo các khung giờ mở rộng đều trên toàn bộ chiều rộng của container */
-  margin: 10px 0;
-}
-
-.time-slot {
-  background-color: #f4f4f4;
-  color: #000000;
-  border: 1px solid #000000;
-  padding: 10px 20px;
-  margin: 5px;
-  cursor: pointer;
-}
-
-.time-slot.selected {
-  background-color: #4CAF50;
-  color: white;
-}
-
-#confirmSelection {
-  display: block;
-  width: auto;
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
-  margin-top: 20px;
-}
-#backButton {
-  display: block;
-  width: auto;
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
-  margin-top: 20px;
-}
-.time-slots h3 {
-  width: 100%;
-  text-align: center;
-}
-  /* Style cho Modal */
-.modal {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Căn giữa các items theo chiều ngang */
-  justify-content: center; /* Căn giữa các items theo chiều dọc */
-  text-align: center; /* Đảm bảo rằng văn bản nằm ở giữa */
-  position: relative;
-  background-color: #fefefe;
-  margin: 10% auto; /* Giảm khoảng cách từ trên xuống để modal hiển thị ở gần giữa hơn */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 60%; /* Bạn có thể điều chỉnh chiều rộng tùy ý */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  animation-name: animatetop;
-  animation-duration: 0.4s;
-}
-
-.modal-content {
-  position: relative;
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% từ trên cùng và giữa màn hình */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Chiều rộng tối đa */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  animation-name: animatetop;
-  animation-duration: 0.4s
-}
-
-/* Thêm Animation */
-@keyframes animatetop {
-  from {top:-300px; opacity:0} 
-  to {top:0; opacity:1}
-}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-#retryButton {
-  margin-top: 20px;
-  background-color: #f44336; /* Màu đỏ */
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-}
-
-#retryButton:hover {
-  background-color: #d32f2f; /* Màu đỏ đậm */
-}
 
   /*---------------------------------------
      TYPOGRAPHY              
@@ -189,108 +72,7 @@
   html{
     -webkit-font-smoothing: antialiased;
   }
-  .calendar-container {
-    max-width: 400px;
-    margin: auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
 
-.month {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px; /* Thêm khoảng cách giữa dòng tháng và dòng thứ */
-}
-.month h3 {
-    text-align: center;
-    color: #333;
-    margin: 0;
-}
-/* Nút chuyển tháng */
-.prev, .next {
-  background-color: #f1f1f1;
-  border: none;
-  cursor: pointer;
-  padding: 5px 10px;
-  margin: 10px 0;
-  font-size: 18px;
-}
-.prev:hover, .next:hover {
-  background-color: #a5c422;
-}
-
-.button-container {
-  display: flex;
-  justify-content: center; /* Căn giữa các nút theo trục ngang */
-  gap: 10px; /* Khoảng cách giữa các nút */
-}
-/* -------------------------------- */
-/* Chú thích và nút xác nhận đặt ngày */
-.legend-item {
-  display: flex;
-  align-items: center;
-  margin-right: 20px;
-}
-
-.legend-color {
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  margin-right: 5px;
-}
-
-.available {
-  background-color: #000;
-}
-
-.unavailable {
-  background-color: #ccc;
-}
-
-.confirm-date {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 20px;
-  display: block;
-  width: 100%;
-}
-
-.confirm-date:hover {
-  background-color: #45a049;
-}
-/* -------------------------------- */
-.days, .dates {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.day, .date {
-    width: 14.28%;
-    text-align: center;
-    margin: 5px 0;
-}
-
-.date {
-    cursor: pointer;
-    padding: 10px 0;
-}
-
-.disabled {
-    color: #ccc;
-    pointer-events: none;
-}
-
-.active {
-    color: #000;
-}
   a {
     color: #252525;
     -webkit-transition: 0.5s;
@@ -677,16 +459,7 @@
       width: 100%;
       justify-content: center;
   }
-  #doctor-container .doctor-container {
-    overflow-x: auto; /* Tạo thanh cuộn ngang khi nội dung vượt quá kích thước của container */
-    white-space: nowrap; /* Ngăn các phần tử con xuống dòng khi vượt quá kích thước */
-}
 
-#doctor-container .doctor-container .col-md-4 {
-    display: inline-block; /* Hiển thị các bác sĩ trên cùng một hàng */
-    margin-bottom: 20px; /* Khoảng cách giữa các bác sĩ */
-    vertical-align: top; /* Đảm bảo các phần tử con nằm trên cùng một dòng */
-}
   .owl-theme .owl-dots .owl-dot span {
     width: 8px;
     height: 8px;
@@ -746,7 +519,11 @@
     padding-top: 150px;
     padding-bottom: 150px;
   }
-
+  .profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
   .profile img,
   .profile figcaption {
     display: inline-block;
@@ -1212,52 +989,7 @@
     background: #4267b2;
     color: #ffffff;
   }
-  button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
 
-button:hover {
-    background-color: #0056b3;
-}
-
-.doctors-scroll {
-  display: flex;
-  overflow-x: auto;
-  padding: 20px 0;
-}
-
-.doctor-item {
-  flex: 0 0 auto;
-  width: 200px;
-  margin-right: 20px;
-  text-align: center;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  padding: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.doctor-item img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin: auto;
-}
-
-.doctor-item h2 {
-  font-size: 16px;
-  color: #333;
-}
-
-.doctor-item p {
-  font-size: 14px;
-  color: #666;
-}
 
   /*---------------------------------------
      RESPONSIVE STYLES              
