@@ -1,4 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600');
+/*
+
+Template 2098 Health
+
+http://www.tooplate.com/view/2098-health
+
+*/
+
+  @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600');
 
   body {
     background: #ffffff;
@@ -319,9 +327,23 @@
   }
   .navbar-default .navbar-nav .dropdown-menu li {
     margin-bottom: 10px;
+  }
+ 
+  .navbar-default .navbar-nav .avatar {
+    width: 30px; /* Điều chỉnh kích thước nếu cần */
+    height: 30px; /* Điều chỉnh kích thước nếu cần */
+    border-radius: 50%; /* Làm cho hình ảnh hồ sơ tròn */
+    float: left; /* Di chuyển avatar sang trái */
+    margin-left: -10px; /* Di chuyển avatar sang trái 10px */
+    margin-top: -5px;
 }
-
-/* Căn chữ "Đặt khám bác sĩ" và "Đặt khám bệnh viện" ngang với nhau */
+.navbar-default .navbar-nav .doctor-avatar {
+  width: 30px; /* Điều chỉnh kích thước nếu cần */
+  height: 30px; /* Điều chỉnh kích thước nếu cần */
+  border-radius: 50%; /* Làm cho hình ảnh hồ sơ tròn */
+  margin-right: 5px;
+}
+  
 .navbar-default .navbar-nav .dropdown-menu a {
     white-space: nowrap; /* Tránh ngắn chữ xuống dòng */
     display: block;
@@ -443,7 +465,16 @@
       width: 100%;
       justify-content: center;
   }
+  #doctor-container .doctor-container {
+    overflow-x: auto; /* Tạo thanh cuộn ngang khi nội dung vượt quá kích thước của container */
+    white-space: nowrap; /* Ngăn các phần tử con xuống dòng khi vượt quá kích thước */
+}
 
+#doctor-container .doctor-container .col-md-4 {
+    display: inline-block; /* Hiển thị các bác sĩ trên cùng một hàng */
+    margin-bottom: 20px; /* Khoảng cách giữa các bác sĩ */
+    vertical-align: top; /* Đảm bảo các phần tử con nằm trên cùng một dòng */
+}
   .owl-theme .owl-dots .owl-dot span {
     width: 8px;
     height: 8px;
@@ -969,7 +1000,52 @@
     background: #4267b2;
     color: #ffffff;
   }
+  button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
+button:hover {
+    background-color: #0056b3;
+}
+
+.doctors-scroll {
+  display: flex;
+  overflow-x: auto;
+  padding: 20px 0;
+}
+
+.doctor-item {
+  flex: 0 0 auto;
+  width: 200px;
+  margin-right: 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.doctor-item img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.doctor-item h2 {
+  font-size: 16px;
+  color: #333;
+}
+
+.doctor-item p {
+  font-size: 14px;
+  color: #666;
+}
 
   /*---------------------------------------
      RESPONSIVE STYLES              

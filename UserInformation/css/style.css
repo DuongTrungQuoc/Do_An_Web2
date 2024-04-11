@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600');
+
+
+  @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600');
 
   body {
     background: #ffffff;
@@ -319,9 +321,23 @@
   }
   .navbar-default .navbar-nav .dropdown-menu li {
     margin-bottom: 10px;
+  }
+ 
+  .navbar-default .navbar-nav .avatar {
+    width: 30px; /* Điều chỉnh kích thước nếu cần */
+    height: 30px; /* Điều chỉnh kích thước nếu cần */
+    border-radius: 50%; /* Làm cho hình ảnh hồ sơ tròn */
+    float: left; /* Di chuyển avatar sang trái */
+    margin-left: -10px; /* Di chuyển avatar sang trái 10px */
+    margin-top: -5px;
 }
-
-/* Căn chữ "Đặt khám bác sĩ" và "Đặt khám bệnh viện" ngang với nhau */
+.navbar-default .navbar-nav .doctor-avatar {
+  width: 30px; /* Điều chỉnh kích thước nếu cần */
+  height: 30px; /* Điều chỉnh kích thước nếu cần */
+  border-radius: 50%; /* Làm cho hình ảnh hồ sơ tròn */
+  margin-right: 5px;
+}
+  
 .navbar-default .navbar-nav .dropdown-menu a {
     white-space: nowrap; /* Tránh ngắn chữ xuống dòng */
     display: block;
@@ -503,7 +519,11 @@
     padding-top: 150px;
     padding-bottom: 150px;
   }
-
+  .profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
   .profile img,
   .profile figcaption {
     display: inline-block;

@@ -1,11 +1,73 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600');
+
+  @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600');
 
   body {
     background: #ffffff;
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
   }
+  /* Style cho Modal */
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Căn giữa các items theo chiều ngang */
+  justify-content: center; /* Căn giữa các items theo chiều dọc */
+  text-align: center; /* Đảm bảo rằng văn bản nằm ở giữa */
+  position: relative;
+  background-color: #fefefe;
+  margin: 10% auto; /* Giảm khoảng cách từ trên xuống để modal hiển thị ở gần giữa hơn */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%; /* Bạn có thể điều chỉnh chiều rộng tùy ý */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
 
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% từ trên cùng và giữa màn hình */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Chiều rộng tối đa */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Thêm Animation */
+@keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#retryButton {
+  margin-top: 20px;
+  background-color: #f44336; /* Màu đỏ */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+#retryButton:hover {
+  background-color: #d32f2f; /* Màu đỏ đậm */
+}
 
   /*---------------------------------------
      TYPOGRAPHY              
@@ -70,7 +132,113 @@
   html{
     -webkit-font-smoothing: antialiased;
   }
+  .calendar-container {
+    max-width: 400px;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
+.month {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px; /* Thêm khoảng cách giữa dòng tháng và dòng thứ */
+}
+.month h3 {
+    text-align: center;
+    color: #333;
+    margin: 0;
+}
+
+/* Nút chuyển tháng */
+.prev, .next {
+  background-color: #f1f1f1;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin: 10px 0;
+  font-size: 18px;
+}
+.prev:hover, .next:hover {
+  background-color: #a5c422;
+}
+/* -------------------------------- */
+/* Chú thích và nút xác nhận đặt ngày */
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.legend-color {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.available {
+  background-color: #000;
+}
+
+.unavailable {
+  background-color: #ccc;
+}
+
+.confirm-date {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  display: block;
+  width: 100%;
+}
+
+.confirm-date:hover {
+  background-color: #45a049;
+}
+.date.active:hover {
+  background-color: #4CAF50; /* Màu xanh lá cho hover */
+  color: white; /* Màu chữ trắng */
+  cursor: pointer; /* Thay đổi con trỏ để người dùng biết có thể click */
+}
+/* Style cho ngày được chọn */
+.date.selected {
+  background-color: #4CAF50; /* Màu xanh lá cho ngày được chọn */
+  color: white; /* Màu chữ trắng */
+}
+/* -------------------------------- */
+.days, .dates {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.day, .date {
+    width: 14.28%;
+    text-align: center;
+    margin: 5px 0;
+}
+
+.date {
+    cursor: pointer;
+    padding: 10px 0;
+}
+
+.disabled {
+    color: #ccc;
+    pointer-events: none;
+}
+
+.active {
+    color: #000;
+}
   a {
     color: #252525;
     -webkit-transition: 0.5s;
@@ -124,7 +292,81 @@
   .text-align-center {
     text-align: center;
   }
+  /* Giới thiệu bác sĩ*/
+  .main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Đảm bảo các phần tử bắt đầu ở cùng một điểm từ trên xuống */
+}
 
+.left-column {
+    flex: 2; /* Cho phép cột trái chiếm không gian lớn hơn nếu cần */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Căn giữa các phần tử trong cột */
+}
+
+.doctor-introduction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px; /* Khoảng cách giữa giới thiệu bác sĩ và bảng chọn ngày */
+}
+.doctor-profile {
+  display: flex;
+  align-items: center; /* Đảm bảo hình ảnh và tên bác sĩ căn giữa với nhau */
+}
+
+.clinic-information {
+    flex: 1; /* Cho phép cột phải chiếm không gian ít hơn */
+    /* CSS cho clinic-information giữ nguyên */
+}
+
+
+/* Tiếp tục với CSS cho các phần tử khác giữ nguyên */
+
+  .doctor-introduction, .clinic-information {
+    margin: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.doctor-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+.doctor-location {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.fa-map-marker {
+    margin-right: 5px;
+    color: #007bff;
+}
+
+.clinic-information h3, .doctor-introduction h3 {
+    color: #007bff;
+}
+
+.promotion {
+    color: #ffd700;
+}
+
+.detail-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.detail-link:hover {
+    text-decoration: underline;
+}
   .border-top {
     border-top: 1px solid #f2f2f2;
     margin-top: 4em;
@@ -319,9 +561,23 @@
   }
   .navbar-default .navbar-nav .dropdown-menu li {
     margin-bottom: 10px;
+  }
+ 
+  .navbar-default .navbar-nav .avatar {
+    width: 30px; /* Điều chỉnh kích thước nếu cần */
+    height: 30px; /* Điều chỉnh kích thước nếu cần */
+    border-radius: 50%; /* Làm cho hình ảnh hồ sơ tròn */
+    float: left; /* Di chuyển avatar sang trái */
+    margin-left: -10px; /* Di chuyển avatar sang trái 10px */
+    margin-top: -5px;
 }
-
-/* Căn chữ "Đặt khám bác sĩ" và "Đặt khám bệnh viện" ngang với nhau */
+.navbar-default .navbar-nav .doctor-avatar {
+  width: 30px; /* Điều chỉnh kích thước nếu cần */
+  height: 30px; /* Điều chỉnh kích thước nếu cần */
+  border-radius: 50%; /* Làm cho hình ảnh hồ sơ tròn */
+  margin-right: 5px;
+}
+  
 .navbar-default .navbar-nav .dropdown-menu a {
     white-space: nowrap; /* Tránh ngắn chữ xuống dòng */
     display: block;
@@ -443,7 +699,16 @@
       width: 100%;
       justify-content: center;
   }
+  #doctor-container .doctor-container {
+    overflow-x: auto; /* Tạo thanh cuộn ngang khi nội dung vượt quá kích thước của container */
+    white-space: nowrap; /* Ngăn các phần tử con xuống dòng khi vượt quá kích thước */
+}
 
+#doctor-container .doctor-container .col-md-4 {
+    display: inline-block; /* Hiển thị các bác sĩ trên cùng một hàng */
+    margin-bottom: 20px; /* Khoảng cách giữa các bác sĩ */
+    vertical-align: top; /* Đảm bảo các phần tử con nằm trên cùng một dòng */
+}
   .owl-theme .owl-dots .owl-dot span {
     width: 8px;
     height: 8px;
@@ -969,7 +1234,52 @@
     background: #4267b2;
     color: #ffffff;
   }
+  button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
+button:hover {
+    background-color: #0056b3;
+}
+
+.doctors-scroll {
+  display: flex;
+  overflow-x: auto;
+  padding: 20px 0;
+}
+
+.doctor-item {
+  flex: 0 0 auto;
+  width: 200px;
+  margin-right: 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.doctor-item img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.doctor-item h2 {
+  font-size: 16px;
+  color: #333;
+}
+
+.doctor-item p {
+  font-size: 14px;
+  color: #666;
+}
 
   /*---------------------------------------
      RESPONSIVE STYLES              

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+     <title>Chọn ngày khám bệnh</title>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="Tooplate">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     <link rel="stylesheet" href="css/bootstrap.min.css">
+     <link rel="stylesheet" href="css/font-awesome.min.css">
+     <link rel="stylesheet" href="css/animate.css">
+     <link rel="stylesheet" href="css/owl.carousel.css">
+     <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+     <!-- CSS -->
+     <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+     <!-- PRE LOADER -->
+     <section class="preloader">
+          <div class="spinner">
+               <span class="spinner-rotate"></span>
+          </div>
+     </section>
+
+     <!-- MENU header-->
+     <section class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+      
+              <div class="navbar-header">
+                  <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                      <span class="icon icon-bar"></span>
+                      <span class="icon icon-bar"></span>
+                      <span class="icon icon-bar"></span>
+                  </button>
+                  <!-- LOGO -->
+                  <a href="index.html" class="navbar-brand">MEDICLORD</a>
+              </div>
+      
+              <!-- MENU LINKS -->
+              <div class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav navbar-right">
+                      <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Đặt khám <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                              <li><a href="#doctor" data-toggle="tooltip" title="Đặc khám không chờ đợi">Đặt khám bác sĩ</a></li>
+                              <li><a href="#hospital" data-toggle="tooltip" title="Đặt khám, thanh toán, nhận kết quả">Đặt khám bệnh viện</a></li>
+                              <li><a href="#call">Bạn cần hỗ trợ? Gọi cho chúng tôi 0355925179</a></li>
+                          </ul>
+                      </li>
+                      <li><a href="#online" class="smoothScroll">Tư vấn trực tuyến</a></li>
+                      <li><a href="#store" class="smoothScroll">Store</a></li>
+                      <li><a href="#news" class="smoothScroll">Tin Y tế</a></li>
+                      <!-- Notification Dropdown -->
+                      <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                              <i class="fa fa-bell"></i> <!-- Icon chuông thông báo -->
+                              <span class="caret"></span>
+                          </a>
+                          <ul class="dropdown-menu notification-dropdown">
+                              <!-- Danh sách thông báo từ bác sĩ -->
+                              <li>
+                                  <a href="#">
+                                      <img src="images/bs1.jpg" alt="Doctor" class="doctor-avatar">
+                                      <span class="notification-message">Nhớ uống thuốc</span>
+                                  </a>
+                              </li>
+                              <!-- Thêm các thông báo khác tương tự cần thiết -->
+                          </ul>
+                      </li>
+                      <!-- User Avatar Dropdown -->
+                      <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                              <img src="images/quoc.jpg" alt="Avatar" class="avatar">
+                          </a>
+                          <ul class="dropdown-menu">
+                              <li><a href="../UserInformation/index.html" class="profile"><i class="fa fa-user"></i> My Profile</a></li>
+                              <li><a href="#" class="messages"><i class="fa fa-envelope"></i> Messages</a></li>
+                              <li><a href="#" class="activity"><i class="fa fa-bell"></i> Activity</a></li>
+                              <li><a href="#" class="faq"><i class="fa fa-question-circle"></i> FAQ</a></li>
+                              <li><a href="#" class="sign-out"><i class="fa fa-sign-out"></i> Sign Out</a></li>
+                          </ul>
+                      </li>
+                  </ul>
+              </div>
+      
+          </div>
+      </section>
+<div class="main-container">
+     
+          <div class="doctor-introduction"><!-- Phần giới thiệu bác sĩ -->
+               <div class="doctor-profile">
+                    <img src="images/quoc.jpg" alt="Doctor" class="doctor-image">
+                    <h3>Dr. Dương Trung Quốc</h3>
+               </div>
+               <p>Chuyên khoa: Tim mạch</p>
+               <div class="doctor-location">
+               <i class="fa fa-map-marker" aria-hidden="true"></i> Nha Trang
+               </div>
+          </div>
+          
+     
+      <!-- Bảng ngày để đặt lịch -->
+           <div class="calendar-container">
+               <div class="month">
+                    <button id="prev" class="prev">&#10094;</button>
+                    <h3>Tháng 4, 2024</h3>
+                    <button id="next" class="next">&#10095;</button>
+               </div>
+               <div class="days">
+                    <div class="day">T2</div>
+                    <div class="day">T3</div>
+                    <div class="day">T4</div>
+                    <div class="day">T5</div>
+                    <div class="day">T6</div>
+                    <div class="day">T7</div>
+                    <div class="day">CN</div>
+               </div>
+               <div class="dates" id="dates">
+                    <!-- JavaScript sẽ điền các ngày vào đây -->
+               </div>
+               <div class="calendar-legend">
+                    <span class="legend-item"><span class="legend-color available"></span> Ngày đặt khám được</span>
+                    <span class="legend-item"><span class="legend-color unavailable"></span> Ngày không đặt khám được</span>
+               </div>
+           
+               <button id="confirmDate" class="confirm-date">Xác nhận chọn ngày</button>
+      </div>
+      <!-- Phần thông tin phòng khám -->
+          <div class="clinic-information">
+               <h3>Địa chỉ khám</h3>
+               <p>Bệnh viện Đa Khoa tỉnh Khánh Hòa</p>
+               <p>19 Yersin, P. Lộc Thọ, TP. Nha Trang</p>
+               <p><span class="promotion">Chương trình khuyến mãi</span> <a href="#" class="detail-link">Xem chi tiết</a></p>
+               <p>Giá khám: 150.000đ <a href="#" class="detail-link">Xem chi tiết</a></p>
+               <p>Loại bảo hiểm áp dụng <a href="#" class="detail-link">Xem chi tiết</a></p>
+      
+          </div>    
+     
+</div> <!-- Đóng container-->
+              
+
+
+     <!-- FOOTER -->
+     <footer data-stellar-background-ratio="5">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-4 col-sm-4">
+                         <div class="footer-thumb"> 
+                              <h4 class="wow fadeInUp" data-wow-delay="0.4s">CÔNG TY TNHH MEDICLORD</h4>
+                              <p>MEDICLORD được thành lập vào năm 2024. Mục tiêu chính là trở thành doanh nghiệp gia công phần mềm hàng đầu Việt Nam.
+
+                                   Đến nay, công ty đã phát triển mạnh mẽ với các trụ sở không chỉ ở Việt Nam mà còn ở nước ngoài như Malaysia, Thái Lan, v.v.</p>
+
+                              <div class="contact-info">
+                                   <p><i class="fa fa-phone"></i> 010-070-0170</p>
+                                   <p><i class="fa fa-envelope-o"></i> <a href="#">info@company.com</a></p>
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4"> 
+                         <div class="footer-thumb"> 
+                              <h4 class="wow fadeInUp" data-wow-delay="0.4s">Tin Y tế mới nhất</h4>
+                              <div class="latest-stories">
+                                   <div class="stories-image">
+                                        <a href="#"><img src="images/news-image.jpg" class="img-responsive" alt=""></a>
+                                   </div>
+                                   <div class="stories-info">
+                                        <a href="#"><h5>Amazing Technology</h5></a>
+                                        <span>08/03/2024</span>
+                                   </div>
+                              </div>
+
+                              <div class="latest-stories">
+                                   <div class="stories-image">
+                                        <a href="#"><img src="images/news-image.jpg" class="img-responsive" alt=""></a>
+                                   </div>
+                                   <div class="stories-info">
+                                        <a href="#"><h5>New Healing Process</h5></a>
+                                        <span>20/02/2024</span>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4"> 
+                         <div class="footer-thumb">
+                              <div class="opening-hours">
+                                   <h4 class="wow fadeInUp" data-wow-delay="0.4s">Kết nối với chúng tôi</h4>
+                              </div> 
+
+                              <ul class="social-icon">
+                                   <li><a href="#" class="fa fa-facebook-square" attr="facebook icon"></a></li>
+                                   <li><a href="#" class="fa fa-twitter"></a></li>
+                                   <li><a href="#" class="fa fa-instagram"></a></li>
+                              </ul>
+                         </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 border-top">
+                         <div class="col-md-4 col-sm-6">
+                              <div class="copyright-text"> 
+                                   <p>Copyright &copy; 2024 Quốc và ae</p>
+                              </div>
+                         </div>
+                    <!-- BTN BACK TO TOP -->
+                         <div class="col-md-2 col-sm-2 text-align-center">
+                              <div class="angle-up-btn"> 
+                                  <a href="#top" class="smoothScroll wow fadeInUp" data-wow-delay="1.2s"><i class="fa fa-angle-up"></i></a>
+                              </div>
+                         </div>   
+                    </div>
+                    
+               </div>
+          </div>
+     </footer>
+
+     <!-- SCRIPTS -->
+     <script src="js/jquery.js"></script>
+     <script src="js/bootstrap.min.js"></script>
+     <script src="js/jquery.sticky.js"></script>
+     <script src="js/jquery.stellar.min.js"></script>
+     <script src="js/wow.min.js"></script>
+     <script src="js/smoothscroll.js"></script>
+     <script src="js/owl.carousel.min.js"></script>
+     <script src="js/custom.js"></script>
+     <script>
+          // Mảng ví dụ, true nghĩa là ngày có thể đặt lịch, false là không thể
+          const availability = [false, true, true, true, false, true, true, false, true, true, false, true, true, true, false, true, true, true, false, true, true, true, false, true, true, true, false, true, true, false];
+
+          const datesContainer = document.getElementById('dates');
+          let selectedDate = null; // Lưu trữ ngày được chọn
+
+          // Tạo và hiển thị các ngày
+          availability.forEach((available, index) => {
+          const dateElement = document.createElement('div');
+          dateElement.classList.add('date');
+          if (!available) {
+          dateElement.classList.add('disabled');
+          } else {
+          dateElement.classList.add('active');
+          dateElement.addEventListener('click', function() {
+            if (selectedDate) {
+                selectedDate.classList.remove('selected'); // Xóa lựa chọn trước đó
+            }
+            dateElement.classList.add('selected'); // Đánh dấu ngày được chọn
+            selectedDate = dateElement;
+        });
+    }
+    dateElement.textContent = index + 1; // Ngày bắt đầu từ 1
+    datesContainer.appendChild(dateElement);
+     });
+
+     // Xử lý sự kiện khi nhấn nút xác nhận
+          document.getElementById('confirmDate').addEventListener('click', function() {
+          if (selectedDate) {
+        // Thực hiện hành động chuyển trang hoặc lưu ngày được chọn
+          alert('Ngày được chọn: ' + selectedDate.textContent); // Ví dụ hiển thị thông báo
+          window.location.href = '../ChooseTime/index.html';
+          } else {
+          alert('Vui lòng chọn ngày khám bệnh.');
+     }
+     });
+    
+     </script>
+     
+</body>
+</html>

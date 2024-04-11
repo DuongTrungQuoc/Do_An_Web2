@@ -1,11 +1,51 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600');
+ @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600');
 
   body {
     background: #ffffff;
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
   }
+   /*---------------------------------------
+     TYPOGRAPHY              
+  -----------------------------------------*/
+  .appointment-card {
+    text-align: left; /* Align text to the left within the appointment card */
+    margin-top: 50px; /* Adjust the top margin for spacing */
+    padding: 20px; /* Add padding to the appointment card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow for a subtle effect */
+    border-radius: 10px; /* Add border radius for rounded corners */
+}
 
+.appointment-head {
+    display: flex;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.qr-code{
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+}
+.confirm-icon {
+  width: 100px;
+  height: 100px;
+  
+}
+
+.appointment-details p {
+    margin: 5px 0;
+}
+
+.patient-info h2 {
+    color: #333;
+    margin-top: 0;
+}
+
+.patient-info p {
+    margin: 5px 0;
+}
 
   /*---------------------------------------
      TYPOGRAPHY              
@@ -51,7 +91,13 @@
     letter-spacing: 0;
     font-weight: normal;
   }
-
+  .icon-container {
+    display: flex;
+    align-items: center;
+}
+.icon-container i {
+    margin-right: 10px;
+}
   p {
     color: #757575;
     font-size: 14px;
@@ -66,7 +112,43 @@
   /*---------------------------------------
      GENERAL               
   -----------------------------------------*/
+  /* Style cho Modal */
+.modal {
+  display: none; /* Ẩn modal mặc định */
+  position: fixed; /* Giữ modal cố định */
+  z-index: 1; /* Đặt modal trên cùng */
+  left: 0;
+  top: 0;
+  width: 100%; /* Chiều rộng tối đa */
+  height: 100%; /* Chiều cao tối đa */
+  overflow: auto; /* Kích hoạt cuộn nếu cần */
+  background-color: rgb(0,0,0); /* Màu nền */
+  background-color: rgba(0,0,0,0.4); /* Màu nền với độ mờ */
+}
 
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% từ trên và giữa màn hình */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Chiều rộng tối đa */
+}
+
+/* Nút đóng (x) */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+ /* ----------------------------------------*/
   html{
     -webkit-font-smoothing: antialiased;
   }
@@ -319,9 +401,23 @@
   }
   .navbar-default .navbar-nav .dropdown-menu li {
     margin-bottom: 10px;
+  }
+ 
+  .navbar-default .navbar-nav .avatar {
+    width: 30px; /* Điều chỉnh kích thước nếu cần */
+    height: 30px; /* Điều chỉnh kích thước nếu cần */
+    border-radius: 50%; /* Làm cho hình ảnh hồ sơ tròn */
+    float: left; /* Di chuyển avatar sang trái */
+    margin-left: -10px; /* Di chuyển avatar sang trái 10px */
+    margin-top: -5px;
 }
-
-/* Căn chữ "Đặt khám bác sĩ" và "Đặt khám bệnh viện" ngang với nhau */
+.navbar-default .navbar-nav .doctor-avatar {
+  width: 30px; /* Điều chỉnh kích thước nếu cần */
+  height: 30px; /* Điều chỉnh kích thước nếu cần */
+  border-radius: 50%; /* Làm cho hình ảnh hồ sơ tròn */
+  margin-right: 5px;
+}
+  
 .navbar-default .navbar-nav .dropdown-menu a {
     white-space: nowrap; /* Tránh ngắn chữ xuống dòng */
     display: block;
@@ -443,7 +539,16 @@
       width: 100%;
       justify-content: center;
   }
+  #doctor-container .doctor-container {
+    overflow-x: auto; /* Tạo thanh cuộn ngang khi nội dung vượt quá kích thước của container */
+    white-space: nowrap; /* Ngăn các phần tử con xuống dòng khi vượt quá kích thước */
+}
 
+#doctor-container .doctor-container .col-md-4 {
+    display: inline-block; /* Hiển thị các bác sĩ trên cùng một hàng */
+    margin-bottom: 20px; /* Khoảng cách giữa các bác sĩ */
+    vertical-align: top; /* Đảm bảo các phần tử con nằm trên cùng một dòng */
+}
   .owl-theme .owl-dots .owl-dot span {
     width: 8px;
     height: 8px;
@@ -969,7 +1074,52 @@
     background: #4267b2;
     color: #ffffff;
   }
+  button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
+button:hover {
+    background-color: #0056b3;
+}
+
+.doctors-scroll {
+  display: flex;
+  overflow-x: auto;
+  padding: 20px 0;
+}
+
+.doctor-item {
+  flex: 0 0 auto;
+  width: 200px;
+  margin-right: 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.doctor-item img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.doctor-item h2 {
+  font-size: 16px;
+  color: #333;
+}
+
+.doctor-item p {
+  font-size: 14px;
+  color: #666;
+}
 
   /*---------------------------------------
      RESPONSIVE STYLES              
