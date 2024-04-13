@@ -1,0 +1,53 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container h1 {
+    font-size: 37px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+form{
+    width: 80%;
+    max-width: 500px;
+}
+
+.department-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.department-button {
+    background-color: #4288d3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    width: 250px; 
+    text-align: left;
+    transition: background-color 0.3s ease;
+}
+
+.department-button i, .department-button span {
+    margin-left: 13px;
+    align-items: center;
+}
+
+.department-button:hover {
+    background-color: #135294;
+}
