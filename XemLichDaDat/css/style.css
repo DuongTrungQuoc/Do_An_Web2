@@ -21,7 +21,16 @@ th {
   color: white;
 }
 .details-button {
-  background-color: #f44336;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.cancel-button{
+  background-color: #e42b12;
   color: white;
   border: none;
   cursor: pointer;
