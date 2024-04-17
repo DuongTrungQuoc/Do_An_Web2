@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-     <title>User</title>
+     <title>Phiếu Khám Bệnh - Thông báo đặt lịch thành công</title>
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
      <meta name="description" content="">
@@ -93,54 +93,38 @@
           </div>
       </section>
 
-      <!-- Schedule -->
-      <h1>Schedule</h1>
-      <table>
-          <thead>
-              <tr>
-                  <th>Tên bệnh nhân</th>
-                  <th>Tên bác sĩ</th>
-                  <th>Ngày khám</th>
-                  <th>Giờ khám</th>
-                  <th>Chi tiết</th>
-                  <th>Trạng thái</th>
-                  <th>Hủy</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr>
-                  <td>Dương Trung Quốc</td>
-                  <td>Dr. Quốc</td>
-                  <td>2024-04-15</td>
-                  <td>14:00</td>
-                  <td><button class="details-button" onclick="window.location.href='../LichHenKhamBenh/index.html';"><i class="fa fa-exclamation-circle"></i> Details</button></td>
-                  <td>Thành công</td>
-                  <td><button class="cancel-button" onclick="confirmCancellation();"><i class="fa fa-times-circle"></i></button></td>
-              </tr>
-              <tr>
-                  <td>Dương Trung Quốc</td>
-                  <td>Dr. Thư</td>
-                  <td>2024-04-16</td>
-                  <td>10:00</td>
-                  <td><button class="details-button" onclick="window.location.href='../LichHenKhamBenh/index.html';"><i class="fa fa-exclamation-circle"></i> Details</button></td>
-                  <td>Đang chờ</td>
-                  <td><button class="cancel-button" onclick="confirmCancellation();"><i class="fa fa-times-circle"></i></button></td>
-              </tr>
-              <tr>
-                  <td>Dương Trung Quốc</td>
-                  <td>Dr. My</td>
-                  <td>2024-04-17</td>
-                  <td>15:00</td>
-                  <td><button class="details-button" onclick="window.location.href='../LichHenKhamBenh/index.html';"><i class="fa fa-exclamation-circle"></i> Details</button></td>
-                  <td>Đã hủy</td>
-                  <td><button class="cancel-button" onclick="confirmCancellation();"><i class="fa fa-times-circle"></i></button></td>
-              </tr>
-              <!-- Additional rows can be added here -->
-          </tbody>
-      </table>
+     <!-- PHIEU KHAM BENH -->
+     <div class="container">
+          <div class="row">
+              <div class="col-md-offset-3 col-md-6">
+     <div class="appointment-card">
+          <div class="appointment-head">
+              
+              <div class="appointment-details">
+               <img src="images/qr.png" alt="Mã QR" class="qr-code">
+                  <p>Số thứ tự: 1</p>
+                  <p><img src="images/tic.jpeg" alt="icon confirm" class="confirm-icon" style="width: 20px; height: 20px;"> Đã đặt lịch</p>
+                  <p>Mã phiếu khám: ABC123</p>
+                  <p>Mã bệnh nhân: XYZ456</p>
+                  <p>Ngày khám: 30/04/2024</p>
+                  <p>Giờ khám dự kiến: 15:00 - 16:00</p>
+                  <p>Bệnh viện Đa Khoa tỉnh Khánh Hòa</p>
+                  <p>19 Yersin, P. Lộc Thọ, TP. Nha Trang</p>
+              </div>
+          </div>
+          <div class="patient-info">
+              <h3>Thông tin bệnh nhân</h3>
+              <p>Họ và tên: Dương Trung Quốc</p>
+              <p>Số điện thoại: 0355925179</p>
+              <p>CCCD: 123321123</p>
+          </div>
+      </div>
+     </div>
+</div>
+</div>
 
 
-      
+       
 
 
      <!-- FOOTER -->
@@ -228,19 +212,6 @@
      <script src="js/smoothscroll.js"></script>
      <script src="js/owl.carousel.min.js"></script>
      <script src="js/custom.js"></script>
-     <script>
-          function confirmCancellation() {
-              var confirmAction = confirm("Bạn muốn hủy lịch đặt khám bệnh này?");
-              if (confirmAction) {
-                  // User pressed OK
-                  // Proceed with cancellation logic here, e.g., redirect or call a server-side function
-                  alert("Lịch đã được hủy."); // Placeholder for actual cancellation action
-              } else {
-                  // User pressed Cancel
-                  // Do nothing
-                  alert("Hủy bỏ thao tác.");
-              }
-          }
-          </script>
+
 </body>
 </html>
