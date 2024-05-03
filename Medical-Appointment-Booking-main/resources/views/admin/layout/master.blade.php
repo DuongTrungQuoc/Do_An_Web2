@@ -88,6 +88,10 @@
             }
         });
     </script>
+    {{-- ChartJS --}}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-tooltip"></script>
+
     {{-- Toastify --}}
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     {{-- Sweat Alert  --}}
@@ -330,8 +334,7 @@
                                     Swal.fire({
                                         icon: "error",
                                         title: "Oops...",
-                                        text: "Something went wrong!",
-                                        footer: '<a href="#">Why do I have this issue?</a>'
+                                        text: `${data.message ? data.message : "Something went wrong!"}`,
                                     });
                                 }
                             },

@@ -164,7 +164,7 @@ a:focus {
 }
 
 .news-info {
-    padding: 30px;
+    padding: 0 30px;
     text-align: left;
 }
 .news-info span {
@@ -178,8 +178,6 @@ a:focus {
 
 .author {
     border-top: 1px solid #f0f0f0;
-    padding-top: 1.5em;
-    margin-top: 2em;
 }
 .author img,
 .author .author-info {
@@ -1163,4 +1161,34 @@ button:hover {
         font-size: 11px;
         letter-spacing: 1px;
     }
+}
+
+.doctor-list ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.doctor-list li {
+    background: #fff;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+.doctor-list img {
+    width: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.doctor-list h2 {
+    margin: 0 0 10px 0;
+}
+
+.doctor-list p {
+    margin: 5px 0;
 }

@@ -232,7 +232,7 @@ a:focus {
 }
 
 .news-info {
-    padding: 30px;
+    padding: 0 30px;
     text-align: left;
 }
 .news-info span {
@@ -246,8 +246,6 @@ a:focus {
 
 .author {
     border-top: 1px solid #f0f0f0;
-    padding-top: 1.5em;
-    margin-top: 2em;
 }
 .author img,
 .author .author-info {

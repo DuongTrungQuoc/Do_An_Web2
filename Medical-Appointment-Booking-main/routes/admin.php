@@ -3,16 +3,26 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\admin\DoctorController;
 use App\Http\Controllers\admin\DoctorScheduleController;
+use App\Http\Controllers\Admin\PostManagementController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ScheduleController;
 use App\Http\Controllers\Admin\SpecializationController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\admin\WorkingTimeController;
 use App\Http\Controllers\Admin\WorkplaceController;
+use App\Http\Controllers\Doctor\PostController;
 use App\Models\Workplace;
 use Illuminate\Support\Facades\Route;
 
-// Dashboard  ------------------------------------
+// Dashboard  ------------------------------------ 
+
+// Top 10 Favorite Doctor Statistic 
+Route::get("dashboard/top-ten-fav-doctor",[DashboardController::class,"topTenFavDoctor"])->name("dashboard.top-ten-fav-doctor");
+// Get Booking Number By Month 
+Route::get("dashboard/booking-number-by-month",[DashboardController::class,"bookingNumberByMonth"])->name("dashboard.booking-number-by-month");
+// Get Booking Status 
+Route::get("dashboard/booking-status-by-month",[DashboardController::class,"bookingStatusByMonth"])->name("dashboard.booking-status-by-month");
+
 Route::get("dashboard",[DashboardController::class,"index"])->name("dashboard");
 // Dashboard  ---------------------------------------
 
@@ -89,4 +99,10 @@ Route::get("schedule/{id}/show",[ScheduleController::class,"show"])->name("sched
 Route::put("user/{id}/update-role",[UserController::class,"updateRole"])->name("user.update-role");
 Route::resource("user",UserController::class);
 // User ------------------------------------------- 
+
+// Post ------------------------------------------- 
+Route::put("post/{id}/change-status",[PostManagementController::class,"changeStatus"])->name('post.change-status');
+Route::resource("post",PostManagementController::class);
+// Post ------------------------------------------- 
+
 

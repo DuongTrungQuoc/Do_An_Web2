@@ -8,12 +8,8 @@
                 <div class="breadcrumb-item">Profile</div>
             </div>
         </div>
+        <a href="{{ route('admin.user.index') }}" class="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i></a>
         <div class="section-body">
-            <h2 class="section-title">Hi, {{ $user->first_name }}</h2>
-            <p class="section-lead">
-                Change information about yourself on this page.
-            </p>
-
             <div class="row mt-sm-4">
                 <div class="col-12 col-md-12 col-lg-12">
                     <div class="card profile-widget">
@@ -33,17 +29,12 @@
                                     <div class="profile-widget-item-label">Address</div>
                                     <div class="profile-widget-item-value">{!! $user->address !!}</div>
                                 </div>
-                                <div class="profile-widget-item">
-                                    <div class="profile-widget-item-label">Date Of Birth</div>
-                                    <div class="profile-widget-item-value">
-                                        {{ Carbon\Carbon::create($user->date_of_birth)->isoFormat('DD/MM/YYYY') }}</div>
-                                </div>
                             </div>
                         </div>
                         <div class="profile-widget-description">
-                            <div class="profile-widget-name">{{ $fullName }} <div
+                            <div class="profile-widget-name">{{ getFullName($user) }} <div
                                     class="text-muted d-inline font-weight-normal">
-                                    <div class="slash"></div>{{ Auth::user()->role }}
+                                    <div class="slash"></div> {{ $user->role }}
                                 </div>
                             </div>
                             {!! $user->description !!}
@@ -53,9 +44,10 @@
                 </div>
                 <div class="col-12 col-md-12 col-lg-12">
                     <div class="card">
-                        <form enctype="multipart/form-data" action="{{ route('admin.profile.profile-update') }}"
+                        <form enctype="multipart/form-data" action="{{ route('admin.user.update', $user->id) }}"
                             method="post" class="needs-validation" novalidate="">
                             @csrf
+                            @method('put')
                             <div class="card-header">
                                 <h4>Edit Profile</h4>
 
@@ -66,7 +58,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-4">
-                                        <img class="rounded-circle mb-5" width="200" src="{{ asset("$user->avatar") }}"
+                                        <img class="rounded-circle mb-5" width="150" src="{{ asset("$user->avatar") }}"
                                             alt="avatar" />
                                     </div>
                                     <div class="form-group col-12">
@@ -79,7 +71,7 @@
                                     <div class="form-group col-md-4 col-12">
                                         <label>First Name</label>
                                         <input name="first_name" type="text" class="form-control"
-                                            value="{{ $firstName }}" required="">
+                                            value="{{ $user->first_name }}" required="">
                                         <div class="invalid-feedback">
                                             Please fill in the first name
                                         </div>
@@ -87,7 +79,7 @@
                                     <div class="form-group col-md-4 col-12">
                                         <label>Middle Name</label>
                                         <input name="middle_name" type="text" class="form-control"
-                                            value="{{ $middleName }}" required="">
+                                            value="{{ $user->middle_name }}" required="">
                                         <div class="invalid-feedback">
                                             Please fill in the middle name
                                         </div>
@@ -96,7 +88,7 @@
                                     <div class="form-group col-md-4 col-12">
                                         <label>Last Name</label>
                                         <input name="last_name" type="text" class="form-control"
-                                            value="{{ $lastName }}" required="">
+                                            value="{{ $user->last_name }}" required="">
                                         <div class="invalid-feedback">
                                             Please fill in the last name
                                         </div>
@@ -107,7 +99,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="form-group col-md-6 col-12">
+                                    <div class="form-group col-md-4 col-12">
                                         <label>Email</label>
                                         <input name="email" type="email" class="form-control"
                                             value="{{ $user->email }}" required="">
@@ -115,14 +107,12 @@
                                             Please fill in the email
                                         </div>
                                     </div>
-                                    <div class="form-group col-md-6 col-12">
+                                    <div class="form-group col-md-4 col-12">
                                         <label>Phone</label>
                                         <input type="tel" name="phone" class="form-control"
                                             value="{{ $user->phone }}">
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-group col-md-6 col-12">
+                                    <div class="form-group col-md-4 col-12">
                                         <label>Select</label>
                                         <select name="gender" class="form-control">
                                             <option value="1" {{ $user->gender == 1 ? 'selected' : ' ' }}>Male
@@ -131,13 +121,9 @@
                                             </option>
                                         </select>
                                     </div>
-                                    <div class="form-group col-md-6 col-12">
-                                        <label>Date Of Birth</label>
-                                        <input class="form-control" type="date" name="date_of_birth"
-                                            value="{{ $user->date_of_birth }}" />
-                                    </div>
                                 </div>
                                 <div class="row">
+
                                     <div class="form-group col-12">
                                         <label>Address</label>
                                         <textarea name="address" class="form-control summernote-simple">
@@ -156,62 +142,33 @@
 
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card-footer text-right">
-                                <button class="btn btn-primary">Save Changes</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-12 col-md-12 col-lg-12">
-                    <div class="card">
-                        <form enctype="multipart/form-data" action="{{ route('admin.profile.password-update') }}"
-                            method="post" class="needs-validation" novalidate="">
-                            @csrf
-                            <div class="card-header">
-                                <h4>Update Password</h4>
-
-                            </div>
-
-                            <div class="card-body">
-                                <div class="row">
-
-
-                                    <div class="form-group col-md-12 col-12">
-                                        <label>Current Password</label>
-                                        <input name="current_password" type="password" class="form-control"
-                                            placeholder="Enter your current password" required="">
-                                        <div class="invalid-feedback">
-                                            Please fill in the password
-                                        </div>
-
+                                @if ($user->role != 'doctor')
+                                    <div class="form-group">
+                                        <label>Role</label>
+                                        <select name="role" class="form-control">
+                                            <option {{ $user->role == 'admin' ? 'selected' : ' ' }} value="admin">Admin
+                                            </option>
+                                            <option {{ $user->role == 'user' ? 'selected' : ' ' }} value="user">User
+                                            </option>
+                                        </select>
                                     </div>
-                                    <div class="form-group col-md-12 col-12">
-                                        <label>New Password</label>
-                                        <input name="password" type="password" class="form-control"
-                                            placeholder="Enter new password" required="">
-                                        <div class="invalid-feedback">
-                                            Please fill in the password
-                                        </div>
-
-                                    </div>
-                                    <div class="form-group col-md-12 col-12">
-                                        <label>Password Confirmation</label>
-                                        <input name="password_confirmation" type="password"
-                                            placeholder="Password confirmation" class="form-control" required="">
-                                        <div class="invalid-feedback">
-                                            Please fill in the password confirmation
-                                        </div>
-
-                                    </div>
-
-
+                                @endif
+                                <div class="form-group">
+                                    <label>Status</label>
+                                    <select name="status" class="form-control">
+                                        <option {{ $user->status == 1 ? 'selected' : ' ' }} value="1">Active
+                                        </option>
+                                        <option {{ $user->status == 0 ? 'selected' : ' ' }} value="0">Inactive
+                                        </option>
+                                    </select>
                                 </div>
-
                             </div>
                             <div class="card-footer text-right">
+                                <a href="{{ route('admin.user.index') }}" class="btn btn-danger"><i
+                                        class="fa-solid fa-right-from-bracket"></i></a>
                                 <button class="btn btn-primary">Save Changes</button>
                             </div>
+
                         </form>
                     </div>
                 </div>
@@ -219,6 +176,3 @@
         </div>
     </section>
 @endsection
-
-@push('scripts')
-@endpush

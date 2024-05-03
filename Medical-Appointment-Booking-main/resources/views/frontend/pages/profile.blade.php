@@ -11,6 +11,10 @@
                             <td>{{ getFullName($user) }}</td>
                         </tr>
                         <tr>
+                            <th>Ngày Sinh</th>
+                            <td>{{ Carbon\Carbon::create($user->date_of_birth)->isoFormat('DD/MM/YYYY') }}</td>
+                        </tr>
+                        <tr>
                             <th>Email</th>
                             <td>{{ $user->email }}</td>
                         </tr>
@@ -37,7 +41,7 @@
                     @csrf
 
                     <h3 style="margin: 20px 0">Thay Đổi Thông Tin Cá Nhân</h3>
-                    <div class="col-md-3">
+                    <div class="col-md-3" style="overflow: hidden">
                         <img src="{{ asset($user->avatar) }}" class="profile-img mb-3 " style="border-radius: 100%"
                             width="200" alt="Avatar">
                         <input name="avatar" type="file" class="form-control-file mb-3">
@@ -49,6 +53,12 @@
                                 @foreach ($errors->all() as $err)
                                     <h5 style="color: rgb(169, 24, 24)">{{ $err }}</h5>
                                 @endforeach
+                            </div>
+                        @endif
+                        @if (Session::has('status'))
+                            <div class="row"
+                                style=" border-radius:5px;margin:20px 0;background-color: rgba(52, 176, 65, 0.47);padding:10px">
+                                <h5 style="color: rgb(30, 105, 52)">{{ session('status') }}</h5>
                             </div>
                         @endif
                         <div class="row">
@@ -68,7 +78,11 @@
                                     class="form-control" id="userName" placeholder="Tên Người Dùng">
                             </div>
                         </div>
-
+                        <div class="form-group">
+                            <label for="userEmail">Ngày Sinh: </label>
+                            <input value="{{ $user->date_of_birth }}" name="date_of_birth" type="date"
+                                class="form-control" id="userEmail" placeholder="email@example.com">
+                        </div>
                         <div class="form-group">
                             <label for="userEmail">Email:</label>
                             <input value="{{ $user->email }}" name="email" type="email" class="form-control"

@@ -5,13 +5,15 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Traits\UploadTrait;
 use Illuminate\Http\Request;
-use PhpOffice\PhpSpreadsheet\Reader\Xls\RC4;
-
+use Illuminate\Support\Facades\Session;
 class ProfileController extends Controller
 { 
     use UploadTrait;
     public function index(){ 
-        $user = auth()->user();
+        $user = auth()->user(); 
+        $role = $user->role;
+        if($role == 'admin') return redirect()->route("admin.profile");
+        else if($role =='doctor') return redirect()->route('doctor.profile'); 
         return view("frontend.pages.profile",[
             'user' => $user,
         ]);
@@ -28,17 +30,21 @@ class ProfileController extends Controller
             'phone' => ['required'], 
             'address' => ['required'],
             'gender' => ['required'],
+            'date_of_birth' => ['required'],
+
         ]);
         $user->update([
             "first_name" => $request->first_name, 
             "middle_name" => $request->middle_name, 
             "last_name" => $request->last_name, 
+            "date_of_birth" => $request->date_of_birth, 
             "email" => $request->email, 
             "gender" => $request->gender, 
             "phone" => $request->phone, 
             "address" => $request->address,
             "avatar" => $path != null ? $path : $user->avatar,
         ]);
+        Session::flash("status","Update Profile Successfully");
         return redirect()->back();
     }
 
@@ -50,6 +56,7 @@ class ProfileController extends Controller
         auth()->user()->update([
             "password" => bcrypt($request->password),
         ]);
+        Session::flash("status","Update Password Successfully");
         return redirect()->back();
     }
 }

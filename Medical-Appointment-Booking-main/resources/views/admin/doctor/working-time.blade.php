@@ -1,3 +1,7 @@
+@php
+    $doctor_id = request()->id;
+@endphp
+
 @extends('admin.layout.master')
 @section('content')
     <section class="section">
@@ -22,6 +26,7 @@
                         <div class="card-body">
                             @php
                                 $daysInMonth = $firstOfMonth->daysInMonth;
+                                $currentDay = Carbon\Carbon::now()->day;
                             @endphp
                             @for ($i = 1; $i <= $daysInMonth; $i++)
                                 @php
@@ -39,13 +44,15 @@
                                             <input type="hidden" name="month" value="{{ $firstOfMonth->month }}" />
                                             <input type="hidden" name="select_id" value="{{ $i }}" />
                                             <select data-id="{{ $i }}" name="working_time[]"
+                                                {{ $i < $currentDay ? 'disabled' : '' }}
                                                 class="form-control select2 select2-{{ $i }}"
                                                 multiple="multiple">
                                                 @for ($j = 1; $j <= 25; $j++)
                                                     @php
                                                         $firstOfMonth->addMinutes(30)->isoFormat('HH:mm');
                                                     @endphp
-                                                    <option value="{{ $firstOfMonth->hour . '-' . $firstOfMonth->minute }}">
+                                                    <option
+                                                        value="{{ $firstOfMonth->hour . '-' . $firstOfMonth->minute }}">
                                                         {{ $firstOfMonth->isoFormat('HH:mm') }}-{{ $firstOfMonth->addMinutes(30)->isoFormat('HH:mm') }}
                                                     </option>
                                                     @php
@@ -86,6 +93,9 @@
             $.ajax({
                 type: "GET",
                 url: "{{ route('admin.working-time.get-working-time') }}",
+                data: {
+                    doctor_id: "{{ $doctor_id }}"
+                },
                 dataType: "JSON",
                 success: function(datas) {
                     $.each(datas, function(i, v) {
