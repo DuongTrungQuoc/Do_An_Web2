@@ -1,78 +1,62 @@
- @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600');
+
+
+  @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600');
 
   body {
     background: #ffffff;
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
   }
-   /*---------------------------------------
-     TYPOGRAPHY              
-  -----------------------------------------*/
-  .appointment-card {
-    text-align: left; /* Align text to the left within the appointment card */
-    margin-top: 50px; /* Adjust the top margin for spacing */
-    padding: 20px; /* Add padding to the appointment card */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow for a subtle effect */
-    border-radius: 10px; /* Add border radius for rounded corners */
-}
-
-.appointment-head {
-    display: flex;
-    border-bottom: 2px solid #f0f0f0;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-}
-
-.qr-code{
-    width: 100px;
-    height: 100px;
-    margin-right: 20px;
-}
-.confirm-icon {
-  width: 100px;
-  height: 100px;
+  header {
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+  }
   
-}
-
-.appointment-details p {
+  .doctor-list ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .doctor-list li {
+    background: #fff;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+  }
+  
+  .doctor-list img {
+    width: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  
+  .doctor-list h2 {
+    margin: 0 0 10px 0;
+  }
+  
+  .doctor-list p {
     margin: 5px 0;
-}
-
-.patient-info h2 {
-    color: #333;
-    margin-top: 0;
-}
-
-.patient-info p {
-    margin: 5px 0;
-}
+  }
 
   /*---------------------------------------
      TYPOGRAPHY              
   -----------------------------------------*/
 
-  h1,h2,h3,h4,h5,h6 {
-    font-weight: 600;
-    line-height: inherit;
-  }
-
-  h1,h2,h3,h4 {
-    letter-spacing: -1px;
-  }
-
   h5 {
     font-weight: 500;
   }
 
-  h1 {
-    color: #252525;
-    font-size: 5em;
-  }
+  
 
   h2 {
     color: #272727;
-    font-size: 3em;
-    padding-bottom: 10px;
+     
   }
 
   h3 {
@@ -91,13 +75,7 @@
     letter-spacing: 0;
     font-weight: normal;
   }
-  .icon-container {
-    display: flex;
-    align-items: center;
-}
-.icon-container i {
-    margin-right: 10px;
-}
+
   p {
     color: #757575;
     font-size: 14px;
@@ -112,43 +90,7 @@
   /*---------------------------------------
      GENERAL               
   -----------------------------------------*/
-  /* Style cho Modal */
-.modal {
-  display: none; /* Ẩn modal mặc định */
-  position: fixed; /* Giữ modal cố định */
-  z-index: 1; /* Đặt modal trên cùng */
-  left: 0;
-  top: 0;
-  width: 100%; /* Chiều rộng tối đa */
-  height: 100%; /* Chiều cao tối đa */
-  overflow: auto; /* Kích hoạt cuộn nếu cần */
-  background-color: rgb(0,0,0); /* Màu nền */
-  background-color: rgba(0,0,0,0.4); /* Màu nền với độ mờ */
-}
 
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% từ trên và giữa màn hình */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Chiều rộng tối đa */
-}
-
-/* Nút đóng (x) */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
- /* ----------------------------------------*/
   html{
     -webkit-font-smoothing: antialiased;
   }
@@ -335,12 +277,7 @@
       MENU              
   -----------------------------------------*/
 
-  header {
-    background: #ffffff;
-    border-bottom: 1px solid #f2f2f2;
-    display: flex;
-    height: 45px;
-  }
+ 
 
   header .col-md-8 {
     padding-right: 0;
@@ -539,16 +476,7 @@
       width: 100%;
       justify-content: center;
   }
-  #doctor-container .doctor-container {
-    overflow-x: auto; /* Tạo thanh cuộn ngang khi nội dung vượt quá kích thước của container */
-    white-space: nowrap; /* Ngăn các phần tử con xuống dòng khi vượt quá kích thước */
-}
 
-#doctor-container .doctor-container .col-md-4 {
-    display: inline-block; /* Hiển thị các bác sĩ trên cùng một hàng */
-    margin-bottom: 20px; /* Khoảng cách giữa các bác sĩ */
-    vertical-align: top; /* Đảm bảo các phần tử con nằm trên cùng một dòng */
-}
   .owl-theme .owl-dots .owl-dot span {
     width: 8px;
     height: 8px;
@@ -1074,52 +1002,7 @@
     background: #4267b2;
     color: #ffffff;
   }
-  button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
 
-button:hover {
-    background-color: #0056b3;
-}
-
-.doctors-scroll {
-  display: flex;
-  overflow-x: auto;
-  padding: 20px 0;
-}
-
-.doctor-item {
-  flex: 0 0 auto;
-  width: 200px;
-  margin-right: 20px;
-  text-align: center;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  padding: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.doctor-item img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin: auto;
-}
-
-.doctor-item h2 {
-  font-size: 16px;
-  color: #333;
-}
-
-.doctor-item p {
-  font-size: 14px;
-  color: #666;
-}
 
   /*---------------------------------------
      RESPONSIVE STYLES              

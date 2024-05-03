@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
 
-     <title>UserInformation</title>
+     <title>Phiếu Khám Bệnh - Thông báo đặt lịch thành công</title>
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
      <meta name="description" content="">
      <meta name="keywords" content="">
      <meta name="author" content="Tooplate">
      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-     
+
      <link rel="stylesheet" href="css/bootstrap.min.css">
      <link rel="stylesheet" href="css/font-awesome.min.css">
      <link rel="stylesheet" href="css/animate.css">
@@ -92,52 +92,39 @@
       
           </div>
       </section>
-      <!-- User Profile -->
-      <div class="container mt-5">
+
+     <!-- PHIEU KHAM BENH -->
+     <div class="container">
           <div class="row">
-               <div class="col-md-12 mb-5">
-                    <h3>Thông Tin Cá Nhân</h3>
-                    <table class="table">
-                        <tbody>
-                            <tr>
-                                <th>Tên</th>
-                                <td>Dương Trung Quốc</td>
-                            </tr>
-                            <tr>
-                                <th>Email</th>
-                                <td>quocdt@gmail.com</td>
-                            </tr>
-                            <tr>
-                                <th>Số điện thoại</th>
-                                <td>0123456789</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-              <div class="col-md-4">
-                  <img src="images/quoc.jpg" class="profile-img mb-3" alt="Avatar">
-                  <input type="file" class="form-control-file mb-3">
-              </div>
-              <div class="col-md-8">
-                  <form>
-                      <div class="form-group">
-                          <label for="userName">Tên:</label>
-                          <input type="text" class="form-control" id="userName" value="Tên Người Dùng">
-                      </div>
-                      <div class="form-group">
-                          <label for="userEmail">Email:</label>
-                          <input type="email" class="form-control" id="userEmail" value="email@example.com">
-                      </div>
-                      <div class="form-group">
-                          <label for="userPhone">Số điện thoại:</label>
-                          <input type="text" class="form-control" id="userPhone" value="0123456789">
-                      </div>
-                      <button type="submit" class="btn btn-primary">Lưu Thay Đổi</button>
-                  </form>
+              <div class="col-md-offset-3 col-md-6">
+     <div class="appointment-card">
+          <div class="appointment-head">
+              
+              <div class="appointment-details">
+               <img src="images/qr.png" alt="Mã QR" class="qr-code">
+                  <p>Số thứ tự: 1</p>
+                  <p><img src="images/tic.jpeg" alt="icon confirm" class="confirm-icon" style="width: 20px; height: 20px;"> Đã đặt lịch</p>
+                  <p>Mã phiếu khám: ABC123</p>
+                  <p>Mã bệnh nhân: XYZ456</p>
+                  <p>Ngày khám: 30/04/2024</p>
+                  <p>Giờ khám dự kiến: 15:00 - 16:00</p>
+                  <p>Bệnh viện Đa Khoa tỉnh Khánh Hòa</p>
+                  <p>19 Yersin, P. Lộc Thọ, TP. Nha Trang</p>
               </div>
           </div>
+          <div class="patient-info">
+              <h3>Thông tin bệnh nhân</h3>
+              <p>Họ và tên: Dương Trung Quốc</p>
+              <p>Số điện thoại: 0355925179</p>
+              <p>CCCD: 123321123</p>
+          </div>
       </div>
-     
+     </div>
+</div>
+</div>
+
+
+       
 
 
      <!-- FOOTER -->
@@ -225,9 +212,6 @@
      <script src="js/smoothscroll.js"></script>
      <script src="js/owl.carousel.min.js"></script>
      <script src="js/custom.js"></script>
-     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 </body>
 </html>

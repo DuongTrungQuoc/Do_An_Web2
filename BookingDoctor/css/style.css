@@ -1,19 +1,11 @@
-/*
-
-Template 2098 Health
-
-http://www.tooplate.com/view/2098-health
-
-*/
-
-  @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600');
+ @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600');
 
   body {
     background: #ffffff;
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
   }
-
+  
 
   /*---------------------------------------
      TYPOGRAPHY              
@@ -330,11 +322,11 @@ http://www.tooplate.com/view/2098-health
   }
  
   .navbar-default .navbar-nav .avatar {
-    width: 30px; /* Điều chỉnh kích thước nếu cần */
-    height: 30px; /* Điều chỉnh kích thước nếu cần */
-    border-radius: 50%; /* Làm cho hình ảnh hồ sơ tròn */
-    float: left; /* Di chuyển avatar sang trái */
-    margin-left: -10px; /* Di chuyển avatar sang trái 10px */
+    width: 30px; 
+    height: 30px; 
+    border-radius: 50%; 
+    float: left; 
+    margin-left: -10px; 
     margin-top: -5px;
 }
 .navbar-default .navbar-nav .doctor-avatar {
@@ -345,9 +337,9 @@ http://www.tooplate.com/view/2098-health
 }
   
 .navbar-default .navbar-nav .dropdown-menu a {
-    white-space: nowrap; /* Tránh ngắn chữ xuống dòng */
+    white-space: nowrap;
     display: block;
-    padding: 10px 20px; /* Điều chỉnh lề và padding tùy theo nhu cầu */
+    padding: 10px 20px;
 }
   .navbar-default .navbar-nav li.login-btn {
     margin: 3px 0 0 20px;
@@ -468,7 +460,54 @@ http://www.tooplate.com/view/2098-health
   #doctor-container .doctor-container {
     overflow-x: auto; /* Tạo thanh cuộn ngang khi nội dung vượt quá kích thước của container */
     white-space: nowrap; /* Ngăn các phần tử con xuống dòng khi vượt quá kích thước */
+   
 }
+.doctors-scroll-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.doctors-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.scroll-btn {
+  
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #eee;
+  border: none;
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+.view-more {
+    padding: 8px 20px;  /* Adjusts the padding inside the button */
+    font-size: 16px;  /* Adjusts the font size */
+    background-color: #007bff;  /* Example background color */
+    color: white;  /* Text color */
+    border: none;  /* Removes border */
+    border-radius: 5px;  /* Rounds the corners */
+}
+
+.text-right {
+    text-align: right;  /* Aligns content to the right */
+}
+.left-scroll {
+  left: 0;
+  margin-left: 10px;
+}
+
+.right-scroll {
+  right: 0;
+  margin-right: 10px;
+}
+
 
 #doctor-container .doctor-container .col-md-4 {
     display: inline-block; /* Hiển thị các bác sĩ trên cùng một hàng */
@@ -1046,6 +1085,7 @@ button:hover {
   font-size: 14px;
   color: #666;
 }
+
 
   /*---------------------------------------
      RESPONSIVE STYLES              

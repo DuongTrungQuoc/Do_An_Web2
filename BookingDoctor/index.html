@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-     <title>User</title>
+     <title>BookingDoctor</title>
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
      <meta name="description" content="">
@@ -18,7 +18,14 @@
 
      <!-- CSS -->
      <link rel="stylesheet" href="css/style.css">
-
+     <style>
+          .doctor-container {
+              margin: 0 auto;
+              padding-left: 40px;
+              padding-right: 40px;
+              max-width: 1200px;  /* You can adjust this width as necessary */
+          }
+      </style>
 </head>
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
@@ -121,7 +128,7 @@
 
      <!-- SELECT DOCTOR -->
      <section id="team" class="slider" data-stellar-background-ratio="0.5">
-          <div class="container">
+          <div class="container doctor-container">
                <div class="row">
                
                     <div class="col-md-6 col-sm-6">
@@ -129,8 +136,15 @@
                               <h2 class="wow fadeInUp">Đặt khám bác sĩ</h2>
                          </div>
                     </div>
+
+                    <div class="col-md-6 col-sm-6 text-right"> <!-- Adjusted for alignment -->
+                         <a href="../ListDoctor/index.html" class="btn btn-primary view-more" style="margin-top: 20px;">Xem thêm</a>
+                    </div>
+                    
                     <div class="clearfix"></div>
-                    <div class="doctors-scroll">
+                    <button class="scroll-btn left-scroll"><i class="fa fa-chevron-left"></i></button>
+                    <div class="doctors-scroll-wrapper">
+                         <div class="doctors-scroll">
                          <div class="doctor-item">
                              <img src="images/team-image1.jpg" class="img-responsive" alt="Bác sĩ 1">
                              <h3>Dương Trung Quốc</h3>
@@ -180,9 +194,11 @@
                                <p>Bệnh viện Đa Khoa tỉnh Khánh Hòa</p>
                               <button class="book-appointment">Đặt lịch</button>
                           </div>
-                         <!-- Thêm các mục bác sĩ khác tại đây -->
+                          
                     </div>
+                    
                </div>
+               <button class="scroll-btn right-scroll"><i class="fa fa-chevron-right"></i></button>
           </div>
      </section>
 
@@ -286,6 +302,19 @@
                   window.location.href = '../ChooseDate/index.html';
               });
           });
+           // Scroll buttons with faster speed
+         $('.right-scroll').click(function() {
+          $('.doctors-scroll').animate({
+              scrollLeft: "+=300px"
+          }, 200); // Speed changed to 200 milliseconds for a faster animation
+      });
+
+      $('.left-scroll').click(function() {
+          $('.doctors-scroll').animate({
+              scrollLeft: "-=300px"
+          }, 200); // Speed changed to 200 milliseconds for a faster animation
+      });
      </script>
+     
 </body>
 </html>
