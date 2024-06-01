@@ -3,8 +3,10 @@
     <!-- NEWS DETAIL -->
     <section id="news-detail" data-stellar-background-ratio="0.5">
         <div class="container">
+            <div style="margin-bottom:2rem">
+                <button onclick="window.location.href='/'">Trở lại</button>
+            </div>
             <div class="row">
-
                 <div class="col-md-8 col-sm-7">
                     <!-- NEWS THUMB -->
                     <div class="news-detail-thumb">
@@ -60,26 +62,19 @@
 
                         <div class="recent-post">
                             <h4>Bài viết gần đây</h4>
-
-                            <div class="media">
-                                <div class="media-object pull-left">
-                                    <a href="#"><img src="{{ asset($creator->avatar) }}" class="img-responsive"
-                                            alt=""></a>
+                            @foreach ($postsByCreator as $post)
+                                <div class="media">
+                                    <div class="media-object pull-left">
+                                        <a href="#"><img src="{{ asset($creator->avatar) }}" class="img-responsive"
+                                                alt=""></a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading"><a
+                                                href="{{ route('news-detail', $post->id) }}">{{ $post->title }}</a>
+                                        </h4>
+                                    </div>
                                 </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading"><a href="#">Introducing a new healing process</a></h4>
-                                </div>
-                            </div>
-
-                            <div class="media">
-                                <div class="media-object pull-left">
-                                    <a href="#"><img src="{{ asset($creator->avatar) }}" class="img-responsive"
-                                            alt=""></a>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading"><a href="#">About Amazing Technology</a></h4>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
 
                         <div class="news-categories">

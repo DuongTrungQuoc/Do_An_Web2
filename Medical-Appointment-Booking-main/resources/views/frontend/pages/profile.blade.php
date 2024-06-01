@@ -3,9 +3,18 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-12 mb-5">
-                <h3 style="margin: 20px 0">Thông Tin Cá Nhân</h3>
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                    <h3 style="margin: 20px 0">Thông Tin Cá Nhân</h3>
+                    <div>
+                        <button onclick="window.location.href='/'">Trở lại</button>
+                    </div>
+                </div>
                 <table class="table">
                     <tbody>
+                        <tr>
+                            <th>Mã bệnh nhân</th>
+                            <td>{{ $user->patient->patient_id }}</td>
+                        </tr>
                         <tr>
                             <th>Tên Đầy Đủ</th>
                             <td>{{ getFullName($user) }}</td>

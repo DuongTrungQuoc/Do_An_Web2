@@ -2,11 +2,13 @@
 @section('content')
     <!-- Main container  -->
     <div class="container">
-
+        <div style="margin-top:2rem">
+            <button onclick="window.location.href='/'">Trở lại</button>
+        </div>
         <div class="doctor-introduction"><!-- Phần giới thiệu bác sĩ -->
             <div class="doctor-profile">
-                <img style="border-radius: 100%;margin-right:10px" width="200" alt="{{ getFullName($doctor->user) }}"
-                    src="{{ asset($doctor->user->avatar) }}" />
+                <img style="border-radius: 100%;margin-right:15px" width="120" height="120"
+                    alt="{{ getFullName($doctor->user) }}" src="{{ asset($doctor->user->avatar) }}" />
                 <div>
                     <h3 class="font-weight-bold">
                         {{ $doctor->academic_degree . ' ' . getFullName($doctor->user) }}</h3>
@@ -90,7 +92,7 @@
                     </div>
                 </section>
                 <div class="time-container-background">
-                    <img width="120" src="{{ asset('uploads/shop.png') }}" />
+                    <img width="100" height="100" style="border-radius: 100%" src="{{ asset('uploads/shop.png') }}" />
                 </div>
                 <div class="appointment-form ">
                     <form action="" class="submit-appointment">
@@ -132,7 +134,13 @@
 
     <!-- Main container  -->
 @endsection
-
+@push('styles')
+    <style>
+        .swal2-popup {
+            font-size: 1.5rem !important;
+        }
+    </style>
+@endpush
 
 @push('scripts')
     <script>
@@ -155,7 +163,7 @@
             selectedDate = null;
         }
         init();
-        console.log(currentDay);
+        console.log(availability);
         for (let i = 1; i <= daysInMonth; i++) {
             if (availability[i] == true && i > currentDay) dates[i] = true;
             else {
@@ -268,7 +276,22 @@
                     success: function(response, textStatus, jqXHR) {
                         if (response.status == 'success') {
                             window.location.replace(response.url);
+                        } else {
+                            Swal.fire({
+                                icon: "error",
+                                title: "Đặt Lịch Không Thành Công",
+                                text: response.message,
+                                footer: `<a href="{{ route('profile') }}">Bổ sung thông tin cá nhân</a>`
+                            });
+                            const link =
+                                `<h4 style='text-align:center'> Bệnh nhân cần bổ sung thêm thông tin cá nhân ! </h4>
+                               <h4 style='text-align:center'> <a style='color:#45A049' href="{{ route('profile') }}">Bổ sung</a></h4>`
+                            $(".appointment-form ").html(link);
+                            $(".time-container-background").show();
+
                         }
+                        $(".data-loader").addClass("hidden");
+
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
                         console.table(jqXHR)
